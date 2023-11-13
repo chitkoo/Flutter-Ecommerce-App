@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'views/home/home_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +13,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return ResponsiveSizer(
+      builder: (_, __, ___) {
+        return const GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: HomeScreen(),
+        );
+      },
     );
   }
 }
