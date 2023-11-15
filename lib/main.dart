@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shopping_app/utils/theme.dart';
+import 'package:shopping_app/controllers/global_controller.dart';
 
+import 'utils/theme.dart';
 import 'views/home/home_screen.dart';
 
 void main() {
   runApp(const MainApp());
+  Get.put(GlobalController());
+
+  GlobalController.init();
 }
 
 class MainApp extends StatelessWidget {
