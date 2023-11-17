@@ -7,7 +7,7 @@ class WishlistScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wishlist Screen'),
+        title: const Text('Wishlist'),
       ),
     );
   }

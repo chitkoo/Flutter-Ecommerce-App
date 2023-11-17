@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/navbar_controller.dart';
-import '../cart/cart_screen.dart';
 import '../order_history/order_history_screen.dart';
 import '../shop/shop_screen.dart';
 import '../wishlist/wishlist_screen.dart';

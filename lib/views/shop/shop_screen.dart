@@ -73,8 +73,8 @@ class ShopScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 5.w),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 18,
-                    mainAxisSpacing: 18,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
                     mainAxisExtent: 50.w,
                   ),
                   itemCount: 10,
