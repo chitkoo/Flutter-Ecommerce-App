@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shopping_app/controllers/global_controller.dart';
 
+import 'controllers/global_controller.dart';
 import 'utils/theme.dart';
 import 'views/home/home_screen.dart';
 

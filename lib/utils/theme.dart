@@ -15,6 +15,7 @@ ThemeData get getAppTheme {
         systemNavigationBarColor: primary,
         statusBarColor: Colors.transparent,
       ),
+      surfaceTintColor: Colors.transparent,
     ),
     navigationBarTheme: const NavigationBarThemeData(
       backgroundColor: primary,

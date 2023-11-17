@@ -33,14 +33,14 @@ class HomeScreen extends StatelessWidget {
             destinations: const [
               NavigationDestination(
                 icon: Icon(Icons.shopping_bag_outlined),
-                label: 'Shop',
+                label: 'Explore',
                 selectedIcon: Icon(Icons.shopping_bag_rounded),
               ),
-              NavigationDestination(
-                icon: Icon(Icons.shopping_cart_outlined),
-                label: 'Cart',
-                selectedIcon: Icon(Icons.shopping_cart_rounded),
-              ),
+              // NavigationDestination(
+              //   icon: Icon(Icons.shopping_cart_outlined),
+              //   label: 'Cart',
+              //   selectedIcon: Icon(Icons.shopping_cart_rounded),
+              // ),
               NavigationDestination(
                 icon: Icon(Icons.favorite_border_outlined),
                 label: 'Wishlist',
