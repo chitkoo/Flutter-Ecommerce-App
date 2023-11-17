@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> pages = [
       const ShopScreen(),
-      const CartScreen(),
+      // const CartScreen(),
       const WishlistScreen(),
       const OrderHistoryScreen(),
     ];
