@@ -7,7 +7,7 @@ import 'colors.dart';
 ThemeData get getAppTheme {
   return ThemeData.light().copyWith(
     useMaterial3: true,
-    textTheme: GoogleFonts.montserratTextTheme(),
+    textTheme: GoogleFonts.plusJakartaSansTextTheme(),
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
       centerTitle: true,

@@ -1,31 +1,13 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'controllers/global_controller.dart';
-import 'utils/theme.dart';
-import 'views/home/home_screen.dart';
+import 'app/app.dart';
+import 'shopping_app_bloc_observer.dart';
 
 void main() {
-  runApp(const MainApp());
-  Get.put(GlobalController());
+  WidgetsFlutterBinding.ensureInitialized();
 
-  GlobalController.init();
-}
+  Bloc.observer = ShoppingAppBlocObserver();
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ResponsiveSizer(
-      builder: (_, __, ___) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: getAppTheme,
-          home: const HomeScreen(),
-        );
-      },
-    );
-  }
+  runApp(const App());
 }
