@@ -6,30 +6,33 @@ import 'colors.dart';
 
 ThemeData get getAppTheme {
   return ThemeData.light().copyWith(
-    useMaterial3: true,
     textTheme: GoogleFonts.plusJakartaSansTextTheme(),
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
-      centerTitle: true,
-      systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
-        systemNavigationBarColor: primary,
-        statusBarColor: Colors.transparent,
-      ),
-      surfaceTintColor: Colors.transparent,
-    ),
-    navigationBarTheme: const NavigationBarThemeData(
-      backgroundColor: primary,
-      surfaceTintColor: primary,
-      indicatorColor: secondary,
-      labelTextStyle: MaterialStatePropertyAll(
-        TextStyle(
-          color: Colors.white,
-        ),
-      ),
-      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-      iconTheme: MaterialStatePropertyAll(
-        IconThemeData(color: Colors.white),
-      ),
-    ),
+    // appBarTheme: AppBarTheme(
+    //   backgroundColor: Colors.white,
+    //   centerTitle: true,
+    //   systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
+    //     systemNavigationBarColor: Colors.white,
+    //     statusBarColor: Colors.transparent,
+    //   ),
+    //   surfaceTintColor: Colors.transparent,
+    // ),
+    // navigationBarTheme: NavigationBarThemeData(
+    //   backgroundColor: Colors.white,
+    //   surfaceTintColor: Colors.white,
+    //   indicatorColor: secondary,
+    //   labelTextStyle: const MaterialStatePropertyAll(
+    //     TextStyle(
+    //       color: Colors.black,
+    //     ),
+    //   ),
+    //   labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+    //   iconTheme: MaterialStateProperty.resolveWith((states) {
+    //     if (states.contains(MaterialState.selected)) {
+    //       return const IconThemeData(color: Colors.white);
+    //     }
+    //     return const IconThemeData(color: primary);
+    //   }),
+    // ),
   );
 }
