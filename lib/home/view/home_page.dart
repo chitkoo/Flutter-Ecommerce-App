@@ -1,11 +1,8 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shopping_app/utils/colors.dart';
 
-import '../../explore/explore.dart';
-import '../../wishlist/wishlist.dart';
+import '../../utils/colors.dart';
 import '../cubit/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,8 +24,9 @@ class _HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 5,
-        toolbarHeight: 100,
+        toolbarHeight: 110,
         backgroundColor: primary,
         flexibleSpace: Stack(
           children: [
@@ -38,11 +36,13 @@ class _HomeView extends StatelessWidget {
               right: 10,
               child: Row(
                 children: [
-                  IconButton(
-                    onPressed: () async {},
-                    icon: const Icon(FluentIcons.list_16_filled),
-                    color: Colors.white,
-                  ),
+                  Builder(builder: (context) {
+                    return IconButton(
+                      onPressed: () => Scaffold.of(context).openDrawer(),
+                      icon: const Icon(FluentIcons.list_16_filled),
+                      color: Colors.white,
+                    );
+                  }),
                   const Text(
                     'Explore',
                     style: TextStyle(color: Colors.white),
@@ -50,8 +50,7 @@ class _HomeView extends StatelessWidget {
                   const Spacer(),
                   IconButton(
                     onPressed: () {},
-                    icon:
-                        const Icon(FluentIcons.shopping_bag_percent_20_filled),
+                    icon: const Icon(FluentIcons.shopping_bag_24_filled),
                     color: Colors.white,
                   ),
                 ],
@@ -59,24 +58,93 @@ class _HomeView extends StatelessWidget {
             ),
             Positioned(
               bottom: 10,
-              right: 20,
+              right: 10,
               left: 20,
-              child: Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
-                child: const Row(
-                  children: [
-                    Icon(FluentIcons.search_28_regular),
-                    SizedBox(
-                      width: 10,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
+                      child: const Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(FluentIcons.search_28_regular),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Search something!',
+                          ),
+                        ],
+                      ),
                     ),
-                    Text('Search something'),
-                  ],
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.tune_rounded),
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/images/drawer_header.jpg',
+                  ),
+                  fit: BoxFit.cover,
                 ),
               ),
+              child: SizedBox.shrink(),
+            ),
+            ListTile(
+              title: const Text('Home'),
+              selected: true,
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Search'),
+              selected: false,
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Categories'),
+              selected: false,
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Wishlist'),
+              selected: false,
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Shopping Bag'),
+              selected: false,
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
           ],
         ),
@@ -93,29 +161,6 @@ class _HomeView extends StatelessWidget {
         },
         itemCount: 10,
       ),
-      // body: IndexedStack(
-      //   index: currentTabIndex,
-      //   children: const [
-      //     ExplorePage(),
-      //     WishlistPage(),
-      //   ],
-      // ),
-      // bottomNavigationBar: NavigationBar(
-      //   elevation: 5,
-      //   selectedIndex: currentTabIndex,
-      //   onDestinationSelected: (value) =>
-      //       context.read<HomeCubit>().onChangedTab(value),
-      //   destinations: const <NavigationDestination>[
-      //     NavigationDestination(
-      //       icon: Icon(FluentIcons.building_shop_24_filled),
-      //       label: 'Explore',
-      //     ),
-      //     NavigationDestination(
-      //       icon: Icon(Icons.ac_unit),
-      //       label: 'Wishlist',
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
