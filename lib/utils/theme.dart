@@ -8,6 +8,9 @@ ThemeData get getAppTheme {
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(iconSize: 25),
     ),
-    drawerTheme: const DrawerThemeData(),
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: Colors.white,
+      surfaceTintColor: Colors.white,
+    ),
   );
 }

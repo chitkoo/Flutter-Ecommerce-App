@@ -1,6 +1,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_app/search/view/search_page.dart';
 
 import '../../utils/colors.dart';
 import '../cubit/home_cubit.dart';
@@ -101,7 +102,6 @@ class _HomeView extends StatelessWidget {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
                 image: DecorationImage(
                   image: AssetImage(
                     'assets/images/drawer_header.jpg',
@@ -114,6 +114,7 @@ class _HomeView extends StatelessWidget {
             ListTile(
               title: const Text('Home'),
               selected: true,
+              selectedColor: primary,
               onTap: () {
                 Navigator.pop(context);
               },
@@ -121,13 +122,48 @@ class _HomeView extends StatelessWidget {
             ListTile(
               title: const Text('Search'),
               selected: false,
+              selectedColor: primary,
               onTap: () {
                 Navigator.pop(context);
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    pageBuilder: (
+                      BuildContext context,
+                      Animation<double> animation,
+                      Animation<double> secondaryAnimation,
+                    ) =>
+                        const SearchPage(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      // final tween =
+                      //     Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.ease));
+                      final tween = Tween(begin: begin, end: end);
+                      // final offsetAnimation = animation.drive(tween);
+
+                      const curve = Curves.ease;
+
+                      final curvedAnimation =
+                          CurvedAnimation(parent: animation, curve: curve);
+                      return SlideTransition(
+                        position: tween.animate(curvedAnimation),
+                        child: child,
+                      );
+
+                      // return FadeTransition(
+                      //   opacity: CurveTween(curve: Curves.easeIn).animate(animation),
+                      //   child: child,
+                      // );
+                    },
+                  ),
+                );
               },
             ),
             ListTile(
               title: const Text('Categories'),
               selected: false,
+              selectedColor: primary,
               onTap: () {
                 Navigator.pop(context);
               },
@@ -135,6 +171,7 @@ class _HomeView extends StatelessWidget {
             ListTile(
               title: const Text('Wishlist'),
               selected: false,
+              selectedColor: primary,
               onTap: () {
                 Navigator.pop(context);
               },
@@ -142,6 +179,7 @@ class _HomeView extends StatelessWidget {
             ListTile(
               title: const Text('Shopping Bag'),
               selected: false,
+              selectedColor: primary,
               onTap: () {
                 Navigator.pop(context);
               },
