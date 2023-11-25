@@ -2,8 +2,8 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopping_app/common/common_methods.dart';
 
+import '../../common/common_methods.dart';
 import '../../search/view/search_page.dart';
 import '../../utils/colors.dart';
 import '../cubit/home_cubit.dart';
@@ -130,6 +130,7 @@ class _HomeView extends StatelessWidget {
               child: SizedBox.shrink(),
             ),
             ListTile(
+              leading: const Icon(FluentIcons.building_shop_24_regular),
               title: const Text('Home'),
               selected: true,
               selectedColor: primary,
@@ -138,6 +139,8 @@ class _HomeView extends StatelessWidget {
               },
             ),
             ListTile(
+              leading:
+                  const Icon(FluentIcons.line_horizontal_4_search_20_regular),
               title: const Text('Search'),
               selected: false,
               selectedColor: primary,
@@ -149,6 +152,7 @@ class _HomeView extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: const Icon(FluentIcons.collections_24_regular),
               title: const Text('Categories'),
               selected: false,
               selectedColor: primary,
@@ -157,6 +161,7 @@ class _HomeView extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: const Icon(FluentIcons.heart_48_regular),
               title: const Text('Wishlist'),
               selected: false,
               selectedColor: primary,
@@ -165,7 +170,8 @@ class _HomeView extends StatelessWidget {
               },
             ),
             ListTile(
-              title: const Text('Shopping Bag'),
+              leading: const Icon(FluentIcons.history_48_regular),
+              title: const Text('Order History'),
               selected: false,
               selectedColor: primary,
               onTap: () {
