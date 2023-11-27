@@ -15,7 +15,7 @@ final laptopList = <Product>[
     images: [
       'assets/images/macbook.webp',
       'assets/images/macbook_1.webp',
-      'assets/images/macbook_2.webp'
+      'assets/images/macbook_2.webp',
     ],
   ),
   Product(
@@ -26,8 +26,8 @@ final laptopList = <Product>[
     price: 1099,
     brand: 'apple',
     images: [
-      'assets/images/macbook.webp',
       'assets/images/macbook_1.webp',
+      'assets/images/macbook.webp',
       'assets/images/macbook_2.webp'
     ],
   ),
@@ -39,9 +39,9 @@ final laptopList = <Product>[
     price: 1599,
     brand: 'apple',
     images: [
+      'assets/images/macbook_2.webp',
       'assets/images/macbook.webp',
       'assets/images/macbook_1.webp',
-      'assets/images/macbook_2.webp'
     ],
   ),
 
@@ -56,7 +56,7 @@ final laptopList = <Product>[
     images: [
       'assets/images/acer.jpeg',
       'assets/images/acer_1.jpeg',
-      'assets/images/acer_2.webp'
+      'assets/images/acer_2.webp',
     ],
   ),
   Product(
@@ -67,8 +67,8 @@ final laptopList = <Product>[
     price: 1599,
     brand: 'acer',
     images: [
-      'assets/images/acer.jpeg',
       'assets/images/acer_1.jpeg',
+      'assets/images/acer.jpeg',
       'assets/images/acer_2.webp'
     ],
   ),
@@ -80,9 +80,9 @@ final laptopList = <Product>[
     price: 1099,
     brand: 'acer',
     images: [
+      'assets/images/acer_2.webp',
       'assets/images/acer.jpeg',
       'assets/images/acer_1.jpeg',
-      'assets/images/acer_2.webp'
     ],
   ),
 
@@ -109,8 +109,8 @@ final laptopList = <Product>[
     price: 1599,
     brand: 'asus',
     images: [
-      'assets/images/asus.webp',
       'assets/images/asus_1.webp',
+      'assets/images/asus.webp',
       'assets/images/asus_2.webp',
       'assets/images/asus_3.webp',
     ],
@@ -123,9 +123,9 @@ final laptopList = <Product>[
     price: 1099,
     brand: 'asus',
     images: [
+      'assets/images/asus_2.webp',
       'assets/images/asus.webp',
       'assets/images/asus_1.webp',
-      'assets/images/asus_2.webp',
       'assets/images/asus_3.webp',
     ],
   ),
@@ -153,8 +153,8 @@ final laptopList = <Product>[
     price: 1599,
     brand: 'apple',
     images: [
-      'assets/images/hp.webp',
       'assets/images/hp_1.jpeg',
+      'assets/images/hp.webp',
       'assets/images/hp_2.webp',
     ],
   ),
@@ -166,8 +166,8 @@ final laptopList = <Product>[
     price: 1099,
     brand: 'apple',
     images: [
-      'assets/images/hp.webp',
       'assets/images/hp_1.jpeg',
+      'assets/images/hp.webp',
       'assets/images/hp_2.webp',
     ],
   ),
@@ -193,8 +193,8 @@ final laptopList = <Product>[
     price: 1599,
     brand: 'apple',
     images: [
-      'assets/images/lenovo.webp',
       'assets/images/lenovo_1.webp',
+      'assets/images/lenovo.webp',
     ],
   ),
   Product(
