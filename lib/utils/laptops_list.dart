@@ -138,7 +138,7 @@ final laptopList = <Product>[
         'Intel Core i7-1255U, 8GB DDR4, PCIe M.2 SSD 512GB, Window 11, 15.6'
         'FHD',
     price: 2099,
-    brand: 'apple',
+    brand: 'hp',
     images: [
       'assets/images/hp.webp',
       'assets/images/hp_1.jpeg',
@@ -151,7 +151,7 @@ final laptopList = <Product>[
     description:
         'Intel Core i5 1135G7, 8GB DDR4 3200MHz (8GB x 1), PCIe M.2 SSD 512GB, Window 11, 14" FHD 1920x1080 ',
     price: 1599,
-    brand: 'apple',
+    brand: 'hp',
     images: [
       'assets/images/hp_1.jpeg',
       'assets/images/hp.webp',
@@ -164,7 +164,7 @@ final laptopList = <Product>[
     description:
         'Intel Core i5 1135G7, 8GB DDR4 3200MHz (4GB x 2), PCIe M.2 SSD 512GB, Window 11, 14" FHD 1920x1080 ',
     price: 1099,
-    brand: 'apple',
+    brand: 'hp',
     images: [
       'assets/images/hp_1.jpeg',
       'assets/images/hp.webp',
@@ -179,7 +179,7 @@ final laptopList = <Product>[
     description:
         'AMD Ryzen3-5425U, 8GB DDR4 3200MHz(4GB x 2), PCIe M2 SSD 256GB, 15.6" FHD 1920x1080, 1.7 Kg',
     price: 2099,
-    brand: 'apple',
+    brand: 'lenovo',
     images: [
       'assets/images/lenovo.webp',
       'assets/images/lenovo_1.webp',
@@ -191,7 +191,7 @@ final laptopList = <Product>[
     description:
         'Celeron - N4020, 4GB DDR4, PCIe M.2 SSD 256GB, Window 11, 15.6" FHD, Weight 1.54kg',
     price: 1599,
-    brand: 'apple',
+    brand: 'lenovo',
     images: [
       'assets/images/lenovo_1.webp',
       'assets/images/lenovo.webp',
@@ -203,7 +203,7 @@ final laptopList = <Product>[
     description:
         'Intel Core i5 1235U , 8GB DDR4 3200MHz(1 slot free) , PCIe M2 SSD 512GB , Nvidia Geforce MX550 2GB DDR6 , Window 11 , 14" FHD 1920x1080',
     price: 1099,
-    brand: 'apple',
+    brand: 'lenovo',
     images: [
       'assets/images/lenovo.webp',
       'assets/images/lenovo_1.webp',

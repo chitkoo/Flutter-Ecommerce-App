@@ -1,15 +1,19 @@
+import 'dart:io';
+
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shopping_app/collections/collections.dart';
-import 'package:shopping_app/models/collection.dart';
-import 'package:shopping_app/utils/collection_list.dart';
 
+import '../../collections/collections.dart';
 import '../../common/common_methods.dart';
+import '../../models/collection.dart';
 import '../../search/view/search_page.dart';
+import '../../utils/collection_list.dart';
 import '../../utils/colors.dart';
+import '../../utils/laptops_list.dart';
+import '../../utils/mobile_phones_list.dart';
 import '../cubit/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -38,7 +42,7 @@ class _HomeView extends StatelessWidget {
         flexibleSpace: Stack(
           children: [
             Positioned(
-              top: 35,
+              top: Platform.isIOS ? 60 : 35,
               left: 10,
               right: 10,
               child: Row(
@@ -130,7 +134,10 @@ class _HomeView extends StatelessWidget {
                       ontap: () {
                         Navigator.of(context).push(
                           buildPageRoute(
-                            const CollectionPage(title: 'Notebooks Collection'),
+                            CollectionPage(
+                              title: 'Notebooks Collection',
+                              productList: laptopList,
+                            ),
                           ),
                         );
                       },
@@ -138,9 +145,18 @@ class _HomeView extends StatelessWidget {
                     _CollectionListWidget(
                       collectionList: laptopsCollection,
                       onItemTapped: (String type) {
+                        debugPrint(type);
+
+                        final selectedLaptopList = laptopList
+                            .where((laptop) => laptop.brand == type)
+                            .toList();
+
                         Navigator.of(context).push(
                           buildPageRoute(
-                            CollectionPage(title: type),
+                            CollectionPage(
+                              title: type,
+                              productList: selectedLaptopList,
+                            ),
                           ),
                         );
                       },
@@ -153,8 +169,10 @@ class _HomeView extends StatelessWidget {
                       ontap: () {
                         Navigator.of(context).push(
                           buildPageRoute(
-                            const CollectionPage(
-                                title: 'Mobile Phones Collection'),
+                            CollectionPage(
+                              title: 'Mobile Phones Collection',
+                              productList: mobilePhonesList,
+                            ),
                           ),
                         );
                       },
@@ -162,9 +180,18 @@ class _HomeView extends StatelessWidget {
                     _CollectionListWidget(
                       collectionList: mobilePhonesCollection,
                       onItemTapped: (String type) {
+                        debugPrint(type);
+
+                        final selectedPhonesList = mobilePhonesList
+                            .where((phone) => phone.brand == type)
+                            .toList();
+
                         Navigator.of(context).push(
                           buildPageRoute(
-                            CollectionPage(title: type),
+                            CollectionPage(
+                              title: type,
+                              productList: selectedPhonesList,
+                            ),
                           ),
                         );
                       },

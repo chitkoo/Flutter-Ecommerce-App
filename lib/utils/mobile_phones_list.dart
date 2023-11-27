@@ -10,7 +10,7 @@ final mobilePhonesList = <Product>[
     description:
         'iPhone 15 Pro Max. Forged in titanium and featuring the groundbreaking A17 Pro chip, a customizable Action button, and the most powerful iPhone camera system ever.',
     price: 999,
-    brand: 'apple',
+    brand: 'iphone',
     images: [
       'assets/images/iphone_15.webp',
       'assets/images/iphone_15_1.webp',
@@ -23,7 +23,7 @@ final mobilePhonesList = <Product>[
     description:
         'iPhone 15 Pro. Forged in titanium and featuring the groundbreaking A17 Pro chip, a customizable Action button, and a more versatile Pro camera system.',
     price: 1099,
-    brand: 'apple',
+    brand: 'iphone',
     images: [
       'assets/images/iphone_15_1.webp',
       'assets/images/iphone_15.webp',
@@ -36,7 +36,7 @@ final mobilePhonesList = <Product>[
     description:
         'iPhone 15 Plus brings you Dynamic Island, a 48MP Main camera, and USB-C — all in a durable color-infused glass and aluminum design.',
     price: 1599,
-    brand: 'apple',
+    brand: 'iphone',
     images: [
       'assets/images/iphone_15_2.webp',
       'assets/images/iphone_15.webp',
