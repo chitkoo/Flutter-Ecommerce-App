@@ -2,6 +2,8 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shopping_app/utils/values.dart';
 
 import '../../common/common_methods.dart';
 import '../../search/view/search_page.dart';
@@ -26,6 +28,7 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 5,
@@ -103,14 +106,97 @@ class _HomeView extends StatelessWidget {
             ),
             floating: true,
           ),
-          SliverList.builder(
-            itemBuilder: (context, index) => const Card(
-              child: SizedBox(
-                width: 100,
-                height: 100,
-              ),
+          SliverFillViewport(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return ListView(
+                  padding: EdgeInsets.all(2.5.w),
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: Image.asset(
+                        'assets/images/drawer_header.jpg',
+                        width: double.infinity,
+                        height: 50.w,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5.w,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Notebooks Collection'),
+                        TextButton.icon(
+                          onPressed: () {},
+                          icon: const Text(
+                            'View all',
+                            style: TextStyle(color: primary),
+                          ),
+                          label: const Icon(
+                            FluentIcons.arrow_circle_right_48_regular,
+                            color: primary,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: 30.w,
+                      alignment: Alignment.center,
+                      child: ListView.separated(
+                        itemCount: laptopsCollection.length,
+                        addAutomaticKeepAlives: false,
+                        addRepaintBoundaries: false,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          final item = laptopsCollection[index];
+
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                width: 20.w,
+                                height: 20.w,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: primary.withOpacity(0.1),
+                                      offset: const Offset(1, 1),
+                                      blurRadius: 1,
+                                      spreadRadius: 1,
+                                    )
+                                  ],
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      item.image,
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                item.name,
+                                style: const TextStyle(color: Colors.black),
+                              ),
+                            ],
+                          );
+                        },
+                        separatorBuilder: (BuildContext context, int index) {
+                          return SizedBox(
+                            width: 5.w,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
-            itemCount: 20,
           ),
         ],
       ),
