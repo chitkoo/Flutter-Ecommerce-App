@@ -54,26 +54,26 @@ final mobilePhonesCollection = <Collection>[
   Collection(
     name: 'Samsung',
     image: 'assets/images/samsung.webp',
-    type: 'acer',
+    type: 'samsung',
   ),
   Collection(
     name: 'Huawei',
     image: 'assets/images/huawei.webp',
-    type: 'asus',
+    type: 'huawei',
   ),
   Collection(
     name: 'Oppo',
     image: 'assets/images/oppo.webp',
-    type: 'dell',
+    type: 'oppo',
   ),
   Collection(
     name: 'Vivo',
     image: 'assets/images/vivo.webp',
-    type: 'hp',
+    type: 'vivo',
   ),
   Collection(
     name: 'mi',
     image: 'assets/images/mi.webp',
-    type: 'lenovo',
+    type: 'mi',
   ),
 ];
