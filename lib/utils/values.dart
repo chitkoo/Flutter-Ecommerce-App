@@ -1,44 +1,79 @@
 import 'package:shopping_app/models/models.dart';
 
-final laptopsCollection = <LaptopCollection>[
-  LaptopCollection(
+///Laptops Collection
+final laptopsCollection = <Collection>[
+  Collection(
     name: 'Apple',
     image: 'assets/images/apple.webp',
     type: 'apple',
   ),
-  LaptopCollection(
+  Collection(
     name: 'Acer',
     image: 'assets/images/acer_notebook.webp',
     type: 'acer',
   ),
-  LaptopCollection(
+  Collection(
     name: 'ASUS',
     image: 'assets/images/asus_notebook.webp',
     type: 'asus',
   ),
-  LaptopCollection(
+  Collection(
     name: 'DELL',
     image: 'assets/images/dell_notebook.webp',
     type: 'dell',
   ),
-  LaptopCollection(
+  Collection(
     name: 'HP',
     image: 'assets/images/hp_notebook.webp',
     type: 'hp',
   ),
-  LaptopCollection(
+  Collection(
     name: 'Lenovo',
     image: 'assets/images/lenovo_notebook.webp',
     type: 'lenovo',
   ),
-  LaptopCollection(
+  Collection(
     name: 'ROG Gaming',
     image: 'assets/images/rog_notebook.webp',
     type: 'rog',
   ),
-  LaptopCollection(
+  Collection(
     name: 'MSI Gaming',
     image: 'assets/images/msi_notebook.webp',
     type: 'msi',
+  ),
+];
+
+///Mobile Phone Collection
+final mobilePhonesCollection = <Collection>[
+  Collection(
+    name: 'iPhone',
+    image: 'assets/images/iphone.webp',
+    type: 'iphone',
+  ),
+  Collection(
+    name: 'Samsung',
+    image: 'assets/images/samsung.webp',
+    type: 'acer',
+  ),
+  Collection(
+    name: 'Huawei',
+    image: 'assets/images/huawei.webp',
+    type: 'asus',
+  ),
+  Collection(
+    name: 'Oppo',
+    image: 'assets/images/oppo.webp',
+    type: 'dell',
+  ),
+  Collection(
+    name: 'Vivo',
+    image: 'assets/images/vivo.webp',
+    type: 'hp',
+  ),
+  Collection(
+    name: 'mi',
+    image: 'assets/images/mi.webp',
+    type: 'lenovo',
   ),
 ];

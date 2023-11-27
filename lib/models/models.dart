@@ -1,1 +1,1 @@
-export 'laptop_collection.dart' show LaptopCollection;
+export 'laptop_collection.dart' show Collection;

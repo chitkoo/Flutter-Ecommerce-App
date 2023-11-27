@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shopping_app/collections/collections.dart';
+import 'package:shopping_app/models/laptop_collection.dart';
 import 'package:shopping_app/utils/values.dart';
 
 import '../../common/common_methods.dart';
@@ -28,7 +30,6 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 5,
@@ -122,76 +123,51 @@ class _HomeView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 5.w,
+                      height: 2.5.w,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text('Notebooks Collection'),
-                        TextButton.icon(
-                          onPressed: () {},
-                          icon: const Text(
-                            'View all',
-                            style: TextStyle(color: primary),
+                    _CollectionTitleWidget(
+                      title: 'Notebooks Collection',
+                      ontap: () {
+                        Navigator.of(context).push(
+                          buildPageRoute(
+                            const CollectionPage(title: 'Notebooks Collection'),
                           ),
-                          label: const Icon(
-                            FluentIcons.arrow_circle_right_48_regular,
-                            color: primary,
-                          ),
-                        ),
-                      ],
+                        );
+                      },
                     ),
-                    Container(
-                      height: 30.w,
-                      alignment: Alignment.center,
-                      child: ListView.separated(
-                        itemCount: laptopsCollection.length,
-                        addAutomaticKeepAlives: false,
-                        addRepaintBoundaries: false,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          final item = laptopsCollection[index];
-
-                          return Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Container(
-                                width: 20.w,
-                                height: 20.w,
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: primary.withOpacity(0.1),
-                                      offset: const Offset(1, 1),
-                                      blurRadius: 1,
-                                      spreadRadius: 1,
-                                    )
-                                  ],
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      item.image,
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                item.name,
-                                style: const TextStyle(color: Colors.black),
-                              ),
-                            ],
-                          );
-                        },
-                        separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(
-                            width: 5.w,
-                          );
-                        },
-                      ),
+                    _CollectionListWidget(
+                      collectionList: laptopsCollection,
+                      onItemTapped: (String type) {
+                        Navigator.of(context).push(
+                          buildPageRoute(
+                            CollectionPage(title: type),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: 2.5.w,
+                    ),
+                    _CollectionTitleWidget(
+                      title: 'Mobile Phones Collection',
+                      ontap: () {
+                        Navigator.of(context).push(
+                          buildPageRoute(
+                            const CollectionPage(
+                                title: 'Mobile Phones Collection'),
+                          ),
+                        );
+                      },
+                    ),
+                    _CollectionListWidget(
+                      collectionList: mobilePhonesCollection,
+                      onItemTapped: (String type) {
+                        Navigator.of(context).push(
+                          buildPageRoute(
+                            CollectionPage(title: type),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 );
@@ -200,72 +176,184 @@ class _HomeView extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/images/drawer_header.jpg',
+      drawer: const _HomeDrawer(),
+    );
+  }
+}
+
+class _CollectionListWidget extends StatelessWidget {
+  const _CollectionListWidget({
+    required this.collectionList,
+    required this.onItemTapped,
+  });
+
+  final List<Collection> collectionList;
+  final Function(String type) onItemTapped;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 30.w,
+      margin: EdgeInsets.only(top: 2.w),
+      alignment: Alignment.center,
+      child: ListView.separated(
+        itemCount: collectionList.length,
+        addAutomaticKeepAlives: false,
+        addRepaintBoundaries: false,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          final item = collectionList[index];
+
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              InkWell(
+                onTap: () => onItemTapped(item.type),
+                child: Container(
+                  width: 20.w,
+                  height: 20.w,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: primary.withOpacity(0.1),
+                        offset: const Offset(1, 1),
+                        blurRadius: 1,
+                        spreadRadius: 1,
+                      )
+                    ],
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage(
+                        item.image,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  fit: BoxFit.cover,
                 ),
               ),
-              child: SizedBox.shrink(),
-            ),
-            ListTile(
-              leading: const Icon(FluentIcons.building_shop_24_regular),
-              title: const Text('Home'),
-              selected: true,
-              selectedColor: primary,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading:
-                  const Icon(FluentIcons.line_horizontal_4_search_20_regular),
-              title: const Text('Search'),
-              selected: false,
-              selectedColor: primary,
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(
-                  buildPageRoute(const SearchPage()),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(FluentIcons.collections_24_regular),
-              title: const Text('Categories'),
-              selected: false,
-              selectedColor: primary,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(FluentIcons.heart_48_regular),
-              title: const Text('Wishlist'),
-              selected: false,
-              selectedColor: primary,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(FluentIcons.history_48_regular),
-              title: const Text('Order History'),
-              selected: false,
-              selectedColor: primary,
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+              const SizedBox(
+                height: 5,
+              ),
+              Text(
+                item.name,
+                style: const TextStyle(color: Colors.black),
+              ),
+            ],
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: 5.w,
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _CollectionTitleWidget extends StatelessWidget {
+  const _CollectionTitleWidget({
+    required this.title,
+    required this.ontap,
+  });
+  final String title;
+  final Function() ontap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(color: Colors.black),
         ),
+        TextButton.icon(
+          onPressed: ontap,
+          icon: const Text(
+            'View all',
+            style: TextStyle(color: primary),
+          ),
+          label: const Icon(
+            FluentIcons.arrow_circle_right_48_regular,
+            color: primary,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _HomeDrawer extends StatelessWidget {
+  const _HomeDrawer();
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/drawer_header.jpg',
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: SizedBox.shrink(),
+          ),
+          ListTile(
+            leading: const Icon(FluentIcons.building_shop_24_regular),
+            title: const Text('Home'),
+            selected: true,
+            selectedColor: primary,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading:
+                const Icon(FluentIcons.line_horizontal_4_search_20_regular),
+            title: const Text('Search'),
+            selected: false,
+            selectedColor: primary,
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(
+                buildPageRoute(const SearchPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(FluentIcons.collections_24_regular),
+            title: const Text('Categories'),
+            selected: false,
+            selectedColor: primary,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(FluentIcons.heart_48_regular),
+            title: const Text('Wishlist'),
+            selected: false,
+            selectedColor: primary,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(FluentIcons.history_48_regular),
+            title: const Text('Order History'),
+            selected: false,
+            selectedColor: primary,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
     );
   }
