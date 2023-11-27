@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shopping_app/collections/collections.dart';
-import 'package:shopping_app/models/laptop_collection.dart';
-import 'package:shopping_app/utils/values.dart';
+import 'package:shopping_app/models/collection.dart';
+import 'package:shopping_app/utils/collection_list.dart';
 
 import '../../common/common_methods.dart';
 import '../../search/view/search_page.dart';
@@ -208,7 +208,7 @@ class _CollectionListWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               InkWell(
-                onTap: () => onItemTapped(item.type),
+                onTap: () => onItemTapped(item.brand),
                 child: Container(
                   width: 20.w,
                   height: 20.w,

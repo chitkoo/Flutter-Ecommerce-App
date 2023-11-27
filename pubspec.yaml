@@ -17,6 +17,7 @@ dependencies:
   json_annotation: ^4.8.1
   responsive_sizer: ^3.2.0
   fluentui_system_icons: ^1.1.222
+  uuid: ^4.2.1
 
 dev_dependencies:
   flutter_test:
