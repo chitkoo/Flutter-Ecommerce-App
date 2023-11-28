@@ -18,6 +18,7 @@ dependencies:
   responsive_sizer: ^3.2.0
   fluentui_system_icons: ^1.1.222
   uuid: ^4.2.1
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:

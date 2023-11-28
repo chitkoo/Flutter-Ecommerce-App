@@ -2,7 +2,9 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../common/common_methods.dart';
 import '../../models/product.dart';
+import '../../product_details/product_details.dart';
 
 class CollectionPage extends StatelessWidget {
   const CollectionPage({
@@ -50,37 +52,55 @@ class _CollectionView extends StatelessWidget {
         ),
         itemBuilder: (BuildContext context, int index) {
           final productItem = productList[index];
+          final isAssetImage =
+              productItem.images?[0].contains('assets') ?? false;
 
-          return Column(
-            children: [
-              Image.asset(
-                productItem.images?[0] ?? '',
-                width: 50.w,
-                height: 45.w,
-                fit: BoxFit.cover,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: 10.w,
-                      alignment: Alignment.center,
-                      child: Text(
-                        productItem.title ?? '',
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(color: Colors.black),
+          return InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                buildPageRoute(
+                  ProductDetailsPage(
+                    product: productItem,
+                  ),
+                ),
+              );
+            },
+            child: Column(
+              children: [
+                Hero(
+                  tag: productItem.title ?? 'hero',
+                  child: isAssetImage
+                      ? Image.asset(
+                          productItem.images?[0] ?? '',
+                          width: 50.w,
+                          height: 45.w,
+                          fit: BoxFit.cover,
+                        )
+                      : const SizedBox.shrink(),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 10.w,
+                        alignment: Alignment.center,
+                        child: Text(
+                          productItem.title ?? '',
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(color: Colors.black),
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(FluentIcons.heart_48_regular),
-                  )
-                ],
-              ),
-            ],
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(FluentIcons.heart_48_regular),
+                    )
+                  ],
+                ),
+              ],
+            ),
           );
         },
       ),
