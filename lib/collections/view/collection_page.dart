@@ -1,5 +1,8 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_app/models/product.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../models/product.dart';
 
 class CollectionPage extends StatelessWidget {
   const CollectionPage({
@@ -32,15 +35,53 @@ class _CollectionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: ListView.builder(
-        addAutomaticKeepAlives: false,
-        addRepaintBoundaries: false,
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      backgroundColor: Colors.white,
+      body: GridView.builder(
+        padding: EdgeInsets.symmetric(vertical: 2.5.w, horizontal: 2.w),
         itemCount: productList.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisExtent: 60.w,
+          mainAxisSpacing: 8.w,
+          crossAxisSpacing: 2.5.w,
+        ),
         itemBuilder: (BuildContext context, int index) {
+          final productItem = productList[index];
 
-          final product = productList[index];
-          return Text(product.title ?? '');
+          return Column(
+            children: [
+              Image.asset(
+                productItem.images?[0] ?? '',
+                width: 50.w,
+                height: 45.w,
+                fit: BoxFit.cover,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 10.w,
+                      alignment: Alignment.center,
+                      child: Text(
+                        productItem.title ?? '',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(FluentIcons.heart_48_regular),
+                  )
+                ],
+              ),
+            ],
+          );
         },
       ),
     );

@@ -5,27 +5,27 @@ final laptopsCollection = <Collection>[
   Collection(
     name: 'Apple',
     image: 'assets/images/apple.webp',
-    brand: 'apple',
+    brand: 'Apple',
   ),
   Collection(
     name: 'Acer',
     image: 'assets/images/acer_notebook.webp',
-    brand: 'acer',
+    brand: 'ACER',
   ),
   Collection(
     name: 'ASUS',
     image: 'assets/images/asus_notebook.webp',
-    brand: 'asus',
+    brand: 'ASUS',
   ),
   Collection(
     name: 'HP',
     image: 'assets/images/hp_notebook.webp',
-    brand: 'hp',
+    brand: 'HP',
   ),
   Collection(
     name: 'Lenovo',
     image: 'assets/images/lenovo_notebook.webp',
-    brand: 'lenovo',
+    brand: 'LENOVO',
   ),
 ];
 
@@ -34,26 +34,26 @@ final mobilePhonesCollection = <Collection>[
   Collection(
     name: 'iPhone',
     image: 'assets/images/iphone.webp',
-    brand: 'iphone',
+    brand: 'iPhone',
   ),
   Collection(
     name: 'Samsung',
     image: 'assets/images/samsung.webp',
-    brand: 'samsung',
+    brand: 'SAMSUNG',
   ),
   Collection(
     name: 'Oppo',
     image: 'assets/images/oppo.webp',
-    brand: 'oppo',
+    brand: 'OPPO',
   ),
   Collection(
     name: 'Vivo',
     image: 'assets/images/vivo.webp',
-    brand: 'vivo',
+    brand: 'VIVO',
   ),
   Collection(
     name: 'mi',
     image: 'assets/images/mi.webp',
-    brand: 'mi',
+    brand: 'MI',
   ),
 ];

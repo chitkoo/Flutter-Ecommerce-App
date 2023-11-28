@@ -10,11 +10,11 @@ final mobilePhonesList = <Product>[
     description:
         'iPhone 15 Pro Max. Forged in titanium and featuring the groundbreaking A17 Pro chip, a customizable Action button, and the most powerful iPhone camera system ever.',
     price: 999,
-    brand: 'iphone',
+    brand: 'iPhone',
     images: [
       'assets/images/iphone_15.webp',
-      'assets/images/iphone_15_1.webp',
-      'assets/images/iphone_15_2.webp',
+      'assets/images/iPhone_15_1.webp',
+      'assets/images/iPhone_15_2.webp',
     ],
   ),
   Product(
@@ -23,11 +23,11 @@ final mobilePhonesList = <Product>[
     description:
         'iPhone 15 Pro. Forged in titanium and featuring the groundbreaking A17 Pro chip, a customizable Action button, and a more versatile Pro camera system.',
     price: 1099,
-    brand: 'iphone',
+    brand: 'iPhone',
     images: [
-      'assets/images/iphone_15_1.webp',
+      'assets/images/iPhone_15_1.webp',
       'assets/images/iphone_15.webp',
-      'assets/images/iphone_15_2.webp',
+      'assets/images/iPhone_15_2.webp',
     ],
   ),
   Product(
@@ -36,11 +36,11 @@ final mobilePhonesList = <Product>[
     description:
         'iPhone 15 Plus brings you Dynamic Island, a 48MP Main camera, and USB-C — all in a durable color-infused glass and aluminum design.',
     price: 1599,
-    brand: 'iphone',
+    brand: 'iPhone',
     images: [
-      'assets/images/iphone_15_2.webp',
+      'assets/images/iPhone_15_2.webp',
       'assets/images/iphone_15.webp',
-      'assets/images/iphone_15_1.webp',
+      'assets/images/iPhone_15_1.webp',
     ],
   ),
 
@@ -55,7 +55,7 @@ final mobilePhonesList = <Product>[
   Batteries: 1 Lithium Ion batteries required. (included)
 """,
     price: 1099,
-    brand: 'samsung',
+    brand: 'SAMSUNG',
     images: [
       'assets/images/samsung_phone.webp',
       'assets/images/samsung_phone_1.webp',
@@ -70,7 +70,7 @@ final mobilePhonesList = <Product>[
   SIM: Hybrid Dual SIM (Nano-SIM, dual stand-by)
 """,
     price: 499,
-    brand: 'samsung',
+    brand: 'SAMSUNG',
     images: [
       'assets/images/samsung_phone_1.webp',
       'assets/images/samsung_phone.webp',
@@ -86,7 +86,7 @@ final mobilePhonesList = <Product>[
   SIM: Single SIM (Nano-SIM) or Dual SIM (Nano-SIM, dual stand-by)
 """,
     price: 899,
-    brand: 'samsung',
+    brand: 'SAMSUNG',
     images: [
       'assets/images/samsung_phone.webp',
       'assets/images/samsung_phone_1.webp',
@@ -104,7 +104,7 @@ final mobilePhonesList = <Product>[
   GPU: IMG GE8320
 """,
     price: 599,
-    brand: 'oppo',
+    brand: 'OPPO',
     images: [
       'assets/images/oppo_3.webp',
       'assets/images/oppo_1.webp',
@@ -121,7 +121,7 @@ final mobilePhonesList = <Product>[
   Memory (RAM): 4 GB
 """,
     price: 399,
-    brand: 'oppo',
+    brand: 'OPPO',
     images: [
       'assets/images/oppo_1.webp',
       'assets/images/oppo_3.webp',
@@ -138,7 +138,7 @@ final mobilePhonesList = <Product>[
   Bezel-Less Display: Yes, with waterdrop notch
 """,
     price: 499,
-    brand: 'oppo',
+    brand: 'OPPO',
     images: [
       'assets/images/oppo_2.webp',
       'assets/images/oppo_3.webp',
@@ -157,7 +157,7 @@ final mobilePhonesList = <Product>[
   SIM: Dual SIM (Nano-SIM, dual stand-by)
 """,
     price: 799,
-    brand: 'vivo',
+    brand: 'VIVO',
     images: [
       'assets/images/vivo_3.webp',
       'assets/images/vivo_1.webp',
@@ -174,7 +174,7 @@ final mobilePhonesList = <Product>[
   SIM: Dual SIM (Nano-SIM, dual stand-by)
 """,
     price: 350,
-    brand: 'vivo',
+    brand: 'VIVO',
     images: [
       'assets/images/vivo_1.webp',
       'assets/images/vivo_3.webp',
@@ -191,7 +191,7 @@ final mobilePhonesList = <Product>[
   SIM: Dual SIM (Nano-SIM, dual stand-by)
 """,
     price: 445,
-    brand: 'vivo',
+    brand: 'VIVO',
     images: [
       'assets/images/vivo_2.webp',
       'assets/images/vivo_3.webp',
@@ -210,7 +210,7 @@ final mobilePhonesList = <Product>[
   SIM: Dual SIM (Nano-SIM, dual stand-by)
 """,
     price: 550,
-    brand: 'mi',
+    brand: 'MI',
     images: [
       'assets/images/mi_3.webp',
       'assets/images/mi_1.webp',
@@ -227,7 +227,7 @@ final mobilePhonesList = <Product>[
   Build: Glass front (Gorilla Glass 5), glass back, aluminum frame
 """,
     price: 400,
-    brand: 'mi',
+    brand: 'MI',
     images: [
       'assets/images/mi_1.webp',
       'assets/images/mi_3.webp',
@@ -244,7 +244,7 @@ final mobilePhonesList = <Product>[
   64 MP + 8 MP + 2 MP Triple Rear Camera
 """,
     price: 650,
-    brand: 'mi',
+    brand: 'MI',
     images: [
       'assets/images/mi_2.webp',
       'assets/images/mi_3.webp',

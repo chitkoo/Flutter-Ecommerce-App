@@ -34,6 +34,9 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /**
+       * Custom App Bar
+       */
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 5,
@@ -72,6 +75,9 @@ class _HomeView extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
+          /**
+          * Custom Search Bar
+          */
           SliverAppBar(
             automaticallyImplyLeading: false,
             backgroundColor: primary,
@@ -111,12 +117,18 @@ class _HomeView extends StatelessWidget {
             ),
             floating: true,
           ),
+          /**
+           * Page Body
+           */
           SliverFillViewport(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return ListView(
                   padding: EdgeInsets.all(2.5.w),
                   children: [
+                    /**
+                     * Promotion Banner
+                     */
                     ClipRRect(
                       borderRadius: BorderRadius.circular(5),
                       child: Image.asset(
@@ -129,6 +141,9 @@ class _HomeView extends StatelessWidget {
                     SizedBox(
                       height: 2.5.w,
                     ),
+                    /**
+                     * Laptops Collection
+                     */
                     _CollectionTitleWidget(
                       title: 'Notebooks Collection',
                       ontap: () {
@@ -164,6 +179,9 @@ class _HomeView extends StatelessWidget {
                     SizedBox(
                       height: 2.5.w,
                     ),
+                    /**
+                     * Mobile Phones Collection
+                     */
                     _CollectionTitleWidget(
                       title: 'Mobile Phones Collection',
                       ontap: () {
