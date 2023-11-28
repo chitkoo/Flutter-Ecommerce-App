@@ -16,7 +16,7 @@ ThemeData get getAppTheme {
     ),
     colorScheme: ColorScheme.fromSeed(seedColor: primary),
     textTheme: GoogleFonts.plusJakartaSansTextTheme(),
-    scaffoldBackgroundColor: Colors.grey.shade100,
+    scaffoldBackgroundColor: Colors.white,
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(iconSize: 25),
     ),

@@ -37,6 +37,7 @@ class _HomeView extends StatelessWidget {
       /**
        * Custom App Bar
        */
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 5,

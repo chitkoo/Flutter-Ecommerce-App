@@ -19,6 +19,7 @@ dependencies:
   fluentui_system_icons: ^1.1.222
   uuid: ^4.2.1
   cached_network_image: ^3.3.0
+  flutter_carousel_widget: ^2.1.2
 
 dev_dependencies:
   flutter_test:

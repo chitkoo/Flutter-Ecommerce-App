@@ -40,9 +40,8 @@ class _CollectionView extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      backgroundColor: Colors.white,
       body: GridView.builder(
-        padding: EdgeInsets.symmetric(vertical: 2.5.w, horizontal: 2.w),
+        padding: EdgeInsets.symmetric(vertical: 1.w, horizontal: 2.w),
         itemCount: productList.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -67,17 +66,14 @@ class _CollectionView extends StatelessWidget {
             },
             child: Column(
               children: [
-                Hero(
-                  tag: productItem.title ?? 'hero',
-                  child: isAssetImage
-                      ? Image.asset(
-                          productItem.images?[0] ?? '',
-                          width: 50.w,
-                          height: 45.w,
-                          fit: BoxFit.cover,
-                        )
-                      : const SizedBox.shrink(),
-                ),
+                isAssetImage
+                    ? Image.asset(
+                        productItem.images?[0] ?? '',
+                        width: 50.w,
+                        height: 45.w,
+                        fit: BoxFit.cover,
+                      )
+                    : const SizedBox.shrink(),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
