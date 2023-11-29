@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../models/product.dart';
 import '../../utils/colors.dart';
@@ -28,15 +29,13 @@ class _ProductDetailsView extends StatelessWidget {
     final sliders = product.images?.map((e) {
       final isAssetImage = e.contains('assets');
 
-      return ClipRect(
-        child: isAssetImage
-            ? Image.asset(
+      return isAssetImage
+          ? Image.asset(
               e,
               width: double.infinity,
               fit: BoxFit.contain,
             )
-            : const SizedBox.shrink(),
-      );
+          : const SizedBox.shrink();
     }).toList();
 
     return Scaffold(
@@ -45,7 +44,7 @@ class _ProductDetailsView extends StatelessWidget {
         slivers: [
           const SliverAppBar(
             expandedHeight: kToolbarHeight,
-            pinned: true,
+            // pinned: true,
             backgroundColor: Colors.transparent,
             systemOverlayStyle: SystemUiOverlayStyle(
               statusBarBrightness: Brightness.dark,
@@ -56,13 +55,16 @@ class _ProductDetailsView extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return ListView(
-                  padding: EdgeInsets.zero,
+                  padding: EdgeInsets.fromLTRB(2.5.w, 0, 2.5.w, 2.5.w),
                   children: [
+                    /**
+                     * Carousel
+                     */
                     FlutterCarousel(
                       options: CarouselOptions(
+                        height: 300,
                         autoPlay: false,
-                        viewportFraction: 0.8,
-                        enlargeCenterPage: true,
+                        viewportFraction: 1,
                         slideIndicator: CircularWaveSlideIndicator(
                           currentIndicatorColor: primary,
                           indicatorBackgroundColor: Colors.grey.shade300,
@@ -71,12 +73,60 @@ class _ProductDetailsView extends StatelessWidget {
                       ),
                       items: sliders,
                     ),
+                    SizedBox(
+                      height: 3.w,
+                    ),
+                    Text(
+                      '${product.title}',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text.rich(
+                      TextSpan(
+                        text: '\$ ',
+                        children: [
+                          TextSpan(
+                              text: '${product.price}',
+                              style: const TextStyle(color: Colors.black54)),
+                        ],
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3.w,
+                    ),
+                    const Text(
+                      'Product Description',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text('${product.description}'),
                   ],
                 );
               },
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        surfaceTintColor: Colors.transparent,
+        height: 60,
+        padding: const EdgeInsets.all(5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('\$ ${product.price}'),
+            ElevatedButton(onPressed: () {}, child: const Text('Add to cart')),
+          ],
+        ),
       ),
     );
   }
