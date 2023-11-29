@@ -57,3 +57,32 @@ final mobilePhonesCollection = <Collection>[
     brand: 'MI',
   ),
 ];
+
+//TV COLLECTIONS
+final tvCollection = <Collection>[
+  Collection(
+    name: 'Samsung TV',
+    image: 'assets/images/samsung_tv.jpeg',
+    brand: 'samsungTV',
+  ),
+  Collection(
+    name: 'Sony TV',
+    image: 'assets/images/sony_tv.webp',
+    brand: 'sonyTV',
+  ),
+  Collection(
+    name: 'LG TV',
+    image: 'assets/images/lg_tv.webp',
+    brand: 'lgTV',
+  ),
+  Collection(
+    name: 'TCL TV',
+    image: 'assets/images/tcl_tv.webp',
+    brand: 'tclTV',
+  ),
+  Collection(
+    name: 'Panasonic TV',
+    image: 'assets/images/panasonic_tv.webp',
+    brand: 'panasonicTV',
+  ),
+];

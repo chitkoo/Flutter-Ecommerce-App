@@ -215,6 +215,47 @@ class _HomeView extends StatelessWidget {
                         );
                       },
                     ),
+                    SizedBox(
+                      height: 2.5.w,
+                    ),
+                    /**
+                     * TV Collection
+                     */
+                    _CollectionTitleWidget(
+                      title: 'TV Collection',
+                      ontap: () {
+                        // Navigator.of(context).push(
+                        //   buildPageRoute(
+                        //     CollectionPage(
+                        //       title: 'TV Collection',
+                        //       productList: tv,
+                        //     ),
+                        //   ),
+                        // );
+                      },
+                    ),
+                    _CollectionListWidget(
+                      collectionList: tvCollection,
+                      onItemTapped: (String type) {
+                        debugPrint(type);
+
+                        // final selectedPhonesList = tvCollection
+                        //     .where((phone) => phone.brand == type)
+                        //     .toList();
+
+                        // Navigator.of(context).push(
+                        //   buildPageRoute(
+                        //     CollectionPage(
+                        //       title: type,
+                        //       productList: selectedPhonesList,
+                        //     ),
+                        //   ),
+                        // );
+                      },
+                    ),
+                    SizedBox(
+                      height: 30.w,
+                    )
                   ],
                 );
               },
