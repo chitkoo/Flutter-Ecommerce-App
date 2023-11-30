@@ -1,4 +1,6 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ShoppingBagPage extends StatelessWidget {
   const ShoppingBagPage({super.key});
@@ -17,6 +19,80 @@ class _ShoppingBagView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shopping Bag'),
+      ),
+      body: ListView.builder(
+        padding: EdgeInsets.symmetric(vertical: 3.w),
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Container(
+            // color: Colors.grey,
+            width: 95.w,
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            margin: EdgeInsets.only(bottom: 2.w),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  'assets/images/iphone_15.webp',
+                  width: 30.w,
+                  height: 30.w,
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  // color: Colors.amber,
+                  width: 65.w,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        'SAMSUNG 75" UA75AU7000KXMR 4K LED SMART TV',
+                        softWrap: true,
+                      ),
+                      SizedBox(
+                        height: 3.w,
+                      ),
+                      Row(
+                        children: [
+                          const Text('\$ 10999'),
+                          const Spacer(),
+                          IconButton(
+                              onPressed: () {}, icon: const Icon(Icons.remove)),
+                          const Text('1'),
+                          IconButton(
+                              onPressed: () {}, icon: const Icon(Icons.remove)),
+                        ],
+                      ),
+                      // Align(
+                      //   alignment: Alignment.centerRight,
+                      //   child: Container(
+                      //     width: 30.w,
+                      //     margin: const EdgeInsets.symmetric(vertical: 5),
+                      //     padding: const EdgeInsets.all(5),
+                      //     decoration: BoxDecoration(
+                      //       borderRadius: BorderRadius.circular(5),
+                      //       border: Border.all(color: Colors.black, width: 0.3),
+                      //       // color: Colors.white,
+                      //     ),
+                      //     child: const Row(
+                      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //       children: [
+                      //         Icon(Icons.add),
+                      //         Text('2'),
+                      //         Icon(Icons.add),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

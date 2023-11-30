@@ -5,16 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shopping_app/utils/tv_list.dart';
 
 import '../../collections/collections.dart';
 import '../../common/common_methods.dart';
 import '../../models/collection.dart';
 import '../../search/view/search_page.dart';
+import '../../shopping_bag/shopping_bag.dart';
 import '../../utils/collection_list.dart';
 import '../../utils/colors.dart';
 import '../../utils/laptops_list.dart';
 import '../../utils/mobile_phones_list.dart';
+import '../../utils/tv_list.dart';
 import '../cubit/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -65,7 +66,13 @@ class _HomeView extends StatelessWidget {
                   ),
                   const Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        buildPageRoute(
+                          const ShoppingBagPage(),
+                        ),
+                      );
+                    },
                     icon: const Icon(FluentIcons.shopping_bag_24_filled),
                     color: Colors.white,
                   ),

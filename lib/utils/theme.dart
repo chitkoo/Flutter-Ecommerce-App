@@ -6,6 +6,7 @@ import 'colors.dart';
 ThemeData get getAppTheme {
   return ThemeData.light().copyWith(
     appBarTheme: AppBarTheme(
+      centerTitle: true,
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.transparent,
       titleTextStyle: TextStyle(
