@@ -63,26 +63,26 @@ final tvCollection = <Collection>[
   Collection(
     name: 'Samsung TV',
     image: 'assets/images/samsung_tv.jpeg',
-    brand: 'samsungTV',
+    brand: 'SAMSUNG TV',
   ),
   Collection(
     name: 'Sony TV',
     image: 'assets/images/sony_tv.webp',
-    brand: 'sonyTV',
+    brand: 'SONY TV',
   ),
   Collection(
     name: 'LG TV',
     image: 'assets/images/lg_tv.webp',
-    brand: 'lgTV',
+    brand: 'LG TV',
   ),
   Collection(
     name: 'TCL TV',
     image: 'assets/images/tcl_tv.webp',
-    brand: 'tclTV',
+    brand: 'TCL TV',
   ),
   Collection(
-    name: 'Panasonic TV',
-    image: 'assets/images/panasonic_tv.webp',
-    brand: 'panasonicTV',
+    name: 'Hisense TV',
+    image: 'assets/images/hisense_tv.webp',
+    brand: 'HISENSE TV',
   ),
 ];

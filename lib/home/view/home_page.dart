@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shopping_app/utils/tv_list.dart';
 
 import '../../collections/collections.dart';
 import '../../common/common_methods.dart';
@@ -224,14 +225,14 @@ class _HomeView extends StatelessWidget {
                     _CollectionTitleWidget(
                       title: 'TV Collection',
                       ontap: () {
-                        // Navigator.of(context).push(
-                        //   buildPageRoute(
-                        //     CollectionPage(
-                        //       title: 'TV Collection',
-                        //       productList: tv,
-                        //     ),
-                        //   ),
-                        // );
+                        Navigator.of(context).push(
+                          buildPageRoute(
+                            CollectionPage(
+                              title: 'TV Collection',
+                              productList: tvList,
+                            ),
+                          ),
+                        );
                       },
                     ),
                     _CollectionListWidget(
@@ -239,18 +240,17 @@ class _HomeView extends StatelessWidget {
                       onItemTapped: (String type) {
                         debugPrint(type);
 
-                        // final selectedPhonesList = tvCollection
-                        //     .where((phone) => phone.brand == type)
-                        //     .toList();
+                        final selectedTvList =
+                            tvList.where((tv) => tv.brand == type).toList();
 
-                        // Navigator.of(context).push(
-                        //   buildPageRoute(
-                        //     CollectionPage(
-                        //       title: type,
-                        //       productList: selectedPhonesList,
-                        //     ),
-                        //   ),
-                        // );
+                        Navigator.of(context).push(
+                          buildPageRoute(
+                            CollectionPage(
+                              title: type,
+                              productList: selectedTvList,
+                            ),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(
