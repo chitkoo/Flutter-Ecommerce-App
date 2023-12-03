@@ -1,4 +1,3 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -65,27 +64,7 @@ class _ShoppingBagView extends StatelessWidget {
                               onPressed: () {}, icon: const Icon(Icons.remove)),
                         ],
                       ),
-                      // Align(
-                      //   alignment: Alignment.centerRight,
-                      //   child: Container(
-                      //     width: 30.w,
-                      //     margin: const EdgeInsets.symmetric(vertical: 5),
-                      //     padding: const EdgeInsets.all(5),
-                      //     decoration: BoxDecoration(
-                      //       borderRadius: BorderRadius.circular(5),
-                      //       border: Border.all(color: Colors.black, width: 0.3),
-                      //       // color: Colors.white,
-                      //     ),
-                      //     child: const Row(
-                      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //       children: [
-                      //         Icon(Icons.add),
-                      //         Text('2'),
-                      //         Icon(Icons.add),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
+                     
                     ],
                   ),
                 ),

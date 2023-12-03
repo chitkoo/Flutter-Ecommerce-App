@@ -15,6 +15,7 @@ import '../../utils/collection_list.dart';
 import '../../utils/colors.dart';
 import '../../utils/laptops_list.dart';
 import '../../utils/mobile_phones_list.dart';
+import '../../utils/super_print.dart';
 import '../../utils/tv_list.dart';
 import '../cubit/home_cubit.dart';
 
@@ -169,7 +170,7 @@ class _HomeView extends StatelessWidget {
                     _CollectionListWidget(
                       collectionList: laptopsCollection,
                       onItemTapped: (String type) {
-                        debugPrint(type);
+                        superPrint(type);
 
                         final selectedLaptopList = laptopList
                             .where((laptop) => laptop.brand == type)
@@ -207,7 +208,7 @@ class _HomeView extends StatelessWidget {
                     _CollectionListWidget(
                       collectionList: mobilePhonesCollection,
                       onItemTapped: (String type) {
-                        debugPrint(type);
+                        superPrint(type);
 
                         final selectedPhonesList = mobilePhonesList
                             .where((phone) => phone.brand == type)
@@ -245,7 +246,7 @@ class _HomeView extends StatelessWidget {
                     _CollectionListWidget(
                       collectionList: tvCollection,
                       onItemTapped: (String type) {
-                        debugPrint(type);
+                        superPrint(type);
 
                         final selectedTvList =
                             tvList.where((tv) => tv.brand == type).toList();
@@ -261,7 +262,7 @@ class _HomeView extends StatelessWidget {
                       },
                     ),
                     SizedBox(
-                      height: 30.w,
+                      height: 18.w,
                     )
                   ],
                 );
