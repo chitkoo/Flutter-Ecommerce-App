@@ -15,15 +15,29 @@ ThemeData get getAppTheme {
         fontFamily: GoogleFonts.plusJakartaSans().fontFamily,
       ),
     ),
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: Colors.white,
+      indicatorColor: primary,
+      surfaceTintColor: Colors.transparent,
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      iconTheme: MaterialStateProperty.resolveWith(
+        (states) {
+          if (states.contains(MaterialState.selected)) {
+            return const IconThemeData(
+              color: Colors.white,
+            );
+          }
+          return const IconThemeData(
+            color: Colors.black,
+          );
+        },
+      ),
+    ),
     colorScheme: ColorScheme.fromSeed(seedColor: primary),
     textTheme: GoogleFonts.plusJakartaSansTextTheme(),
     scaffoldBackgroundColor: Colors.white,
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(iconSize: 25),
-    ),
-    drawerTheme: const DrawerThemeData(
-      backgroundColor: Colors.white,
-      surfaceTintColor: Colors.white,
     ),
   );
 }
