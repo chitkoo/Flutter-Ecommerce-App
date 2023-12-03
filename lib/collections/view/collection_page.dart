@@ -1,4 +1,4 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -91,7 +91,7 @@ class _CollectionView extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: const Icon(FluentIcons.heart_48_regular),
+                      icon: const Icon(CupertinoIcons.heart),
                     )
                   ],
                 ),

@@ -1,4 +1,4 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:like_button/like_button.dart';
@@ -47,7 +47,7 @@ class _ProductDetailsView extends StatelessWidget {
             padding: const EdgeInsets.only(right: 30),
             child: IconButton(
               onPressed: () {},
-              icon: const Icon(FluentIcons.cart_24_regular),
+              icon: const Icon(CupertinoIcons.cart),
             ),
           ),
         ],
@@ -111,8 +111,8 @@ class _ProductDetailsView extends StatelessWidget {
                           ]),
                       child: Icon(
                         isLiked
-                            ? FluentIcons.heart_48_filled
-                            : FluentIcons.heart_48_regular,
+                            ? CupertinoIcons.heart_fill
+                            : CupertinoIcons.heart,
                         color: isLiked ? Colors.redAccent : Colors.grey,
                         size: 20,
                       ),

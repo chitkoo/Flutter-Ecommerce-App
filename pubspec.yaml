@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.1.5 <4.0.0'
 
 dependencies:
+  cupertino_icons: ^1.0.2
   bloc: ^8.1.2
   equatable: ^2.0.5
   flutter:
@@ -16,8 +17,6 @@ dependencies:
   http: ^1.1.0
   json_annotation: ^4.8.1
   responsive_sizer: ^3.2.0
-  fluentui_system_icons: ^1.1.222
-  uuid: ^4.2.1
   cached_network_image: ^3.3.0
   flutter_carousel_widget: ^2.1.2
   like_button: ^2.0.5
