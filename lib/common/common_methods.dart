@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// `Route Animation`
 PageRouteBuilder<dynamic> buildPageRoute(Widget page) {
   return PageRouteBuilder(
     pageBuilder: (

@@ -64,7 +64,6 @@ class _ShoppingBagView extends StatelessWidget {
                               onPressed: () {}, icon: const Icon(Icons.remove)),
                         ],
                       ),
-                     
                     ],
                   ),
                 ),
