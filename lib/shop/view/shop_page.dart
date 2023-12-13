@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shopping_app/utils/extensions.dart';
 
 import '../../common/common_methods.dart';
 import '../../search/search.dart';
@@ -43,44 +44,43 @@ class ShopPage extends StatelessWidget {
 
       ///`Custom App Bar`
       appBar: const HomeAppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 2.w),
-        child: CustomScrollView(
-          slivers: [
-            ///`Categories Header`
-            HeaderSection(
-              headerTitle: 'Trending Categories',
-              onTap: () {},
-            ),
-            const CustomMargin(),
+      body: CustomScrollView(
+        slivers: [
+          const CustomMargin(),
 
-            ///`Categories List`
-            const CategoriesList(categories: categories),
-            const CustomMargin(),
+          ///`Categories Header`
+          HeaderSection(
+            headerTitle: 'Trending Categories',
+            onTap: () {},
+          ),
+          const CustomMargin(),
 
-            ///`Smartphones Header`
-            HeaderSection(
-              headerTitle: 'Popular Smartphones',
-              onTap: () {},
-            ),
-            const CustomMargin(),
+          ///`Categories List`
+          const CategoriesList(categories: categories),
+          const CustomMargin(),
 
-            ///`Smartphones List`
-            const SmartphonesList(),
-            const CustomMargin(),
+          ///`Smartphones Header`
+          HeaderSection(
+            headerTitle: 'Popular Smartphones',
+            onTap: () {},
+          ),
+          const CustomMargin(),
 
-            ///`Laptops Header`
-            HeaderSection(
-              headerTitle: 'Popular Laptops',
-              onTap: () {},
-            ),
-            const CustomMargin(),
+          ///`Smartphones List`
+          const SmartphonesList(),
+          const CustomMargin(),
 
-            ///`Laptops List`
-            const SmartphonesList(),
-            const CustomMargin(),
-          ],
-        ),
+          ///`Laptops Header`
+          HeaderSection(
+            headerTitle: 'Popular Laptops',
+            onTap: () {},
+          ),
+          const CustomMargin(),
+
+          ///`Laptops List`
+          const SmartphonesList(),
+          const CustomMargin(),
+        ],
       ),
     );
   }
@@ -292,7 +292,7 @@ class CustomMargin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(padding: EdgeInsets.only(bottom: 2.w));
+    return SliverPadding(padding: EdgeInsets.only(bottom: 5.w));
   }
 }
 
@@ -317,25 +317,6 @@ class CategoriesList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final categoryItem = categories[index];
 
-            // return Padding(
-            //   padding: EdgeInsets.symmetric(horizontal: 2.w),
-            //   child: TextButton(
-            //     onPressed: () {},
-            //     style: TextButton.styleFrom(
-            //       shadowColor: Colors.black.withOpacity(0.1),
-            //       padding: EdgeInsets.symmetric(horizontal: 2.w),
-            //       backgroundColor: Colors.white,
-            //       shape: RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.circular(2.w),
-            //       ),
-            //     ),
-            //     child: Text(
-            //       categoryItem.toUpperCase(),
-            //       style: const TextStyle(color: primaryTextColor),
-            //     ),
-            //   ),
-            // );
-
             return Container(
               padding: EdgeInsets.symmetric(horizontal: 2.w),
               height: 10.w,
@@ -350,7 +331,7 @@ class CategoriesList extends StatelessWidget {
               ),
               clipBehavior: Clip.antiAlias,
               child: InkWell(
-                  onTap: () {}, child: Text(categoryItem.toUpperCase())),
+                  onTap: () {}, child: Text(categoryItem.capitalizeString)),
             );
           },
         ),
@@ -380,14 +361,17 @@ class HeaderSection extends StatelessWidget {
           children: [
             Text(
               headerTitle,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
-            TextButton(
-              onPressed: onTap,
-              child: const Text('See all'),
+            InkWell(
+              onTap: () {},
+              child: Text(
+                'See all',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
             ),
           ],
         ),

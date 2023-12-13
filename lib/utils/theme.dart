@@ -9,12 +9,12 @@ ThemeData get getAppTheme {
     appBarTheme: _getAppBarTheme(),
     navigationBarTheme: _getNavBarTheme(),
     colorScheme: ColorScheme.fromSeed(seedColor: primary),
-    textTheme: GoogleFonts.plusJakartaSansTextTheme().copyWith(
-      titleMedium: GoogleFonts.plusJakartaSans(
+    textTheme: GoogleFonts.dmSansTextTheme().copyWith(
+      titleMedium: GoogleFonts.dmSans(
         fontSize: 17.sp,
         color: primaryTextColor,
       ),
-      bodyMedium: GoogleFonts.plusJakartaSans(
+      bodyMedium: GoogleFonts.dmSans(
         fontSize: 15.sp,
         color: primaryTextColor,
       ),
