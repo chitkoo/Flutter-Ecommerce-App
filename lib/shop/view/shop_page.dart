@@ -40,8 +40,6 @@ class ShopPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
-
       ///`Custom App Bar`
       appBar: const HomeAppBar(),
       body: CustomScrollView(

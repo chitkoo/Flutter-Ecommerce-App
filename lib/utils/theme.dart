@@ -24,16 +24,30 @@ ThemeData get getAppTheme {
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(iconSize: 25),
     ),
+    bottomAppBarTheme: BottomAppBarTheme(
+      surfaceTintColor: Colors.transparent,
+      color: Colors.grey.shade100,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: primary,
+        surfaceTintColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(2.w),
+        ),
+      ),
+    ),
   );
 }
 
 AppBarTheme _getAppBarTheme() {
   return AppBarTheme(
     centerTitle: true,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.grey.shade100,
     surfaceTintColor: Colors.transparent,
     titleTextStyle: TextStyle(
-      fontSize: 14,
+      fontSize: 17.sp,
       color: Colors.black,
       fontFamily: GoogleFonts.plusJakartaSans().fontFamily,
     ),
