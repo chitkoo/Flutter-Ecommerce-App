@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../utils/colors.dart';
+
 class ShoppingBagPage extends StatelessWidget {
   const ShoppingBagPage({super.key});
 
@@ -24,107 +26,125 @@ class ShoppingBagView extends StatelessWidget {
             title: Text('Shopping Bag'),
           ),
           SliverList.builder(
-            itemCount: 5,
+            itemCount: 1,
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 key: ValueKey(index),
                 width: 95.w,
-                height: 30.w,
-                margin: EdgeInsets.symmetric(
-                  vertical: 2.5.w,
-                ),
-                decoration: const BoxDecoration(
-                    // color: Colors.white,
-                    ),
-                child: Stack(
+                margin:
+                    EdgeInsets.symmetric(vertical: 2.5.w, horizontal: 2.5.w),
+                decoration: const BoxDecoration(),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Positioned(
-                      left: 5.w,
-                      top: 0,
-                      right: 55.w,
-                      bottom: 0,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(2.w),
                       child: CachedNetworkImage(
                         imageUrl:
                             'https://i.dummyjson.com/data/products/1/1.jpg',
+                        width: 40.w,
+                        height: 30.w,
+                        fit: BoxFit.fill,
                       ),
                     ),
-                    Positioned(
-                      top: 4.w,
-                      left: 50.w,
-                      child: Text(
-                        'iphone 9',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ),
-                    Positioned(
-                      top: 10.w,
-                      left: 50.w,
-                      child: Text(
-                        'USD 900',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 18.5.w,
-                      left: 50.w,
-                      child: SizedBox(
-                        width: 25.w,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              onTap: () {},
-                              radius: 2.w,
-                              child: Container(
-                                padding: const EdgeInsets.all(3),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(2.w),
-                                  border: Border.all(
-                                    width: 0.5,
+                    Container(
+                      margin: EdgeInsets.only(left: 5.w),
+                      height: 30.w,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'iphone 9',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          Text(
+                            'USD 900',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          SizedBox(
+                            width: 50.w,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  width: 25.w,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          debugPrint('remove');
+                                        },
+                                        radius: 2.w,
+                                        child: Container(
+                                          padding: const EdgeInsets.all(3),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(2.w),
+                                            border: Border.all(
+                                              width: 0.5,
+                                            ),
+                                          ),
+                                          child: Icon(
+                                            CupertinoIcons.minus,
+                                            size: 5.w,
+                                            color: primaryTextColor,
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        '10',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          debugPrint('add');
+                                        },
+                                        radius: 2.w,
+                                        child: Container(
+                                          padding: const EdgeInsets.all(3),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(2.w),
+                                            border: Border.all(
+                                              width: 0.5,
+                                            ),
+                                          ),
+                                          child: Icon(
+                                            CupertinoIcons.plus,
+                                            size: 5.w,
+                                            color: primaryTextColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                child: Icon(
-                                  CupertinoIcons.minus,
-                                  size: 5.w,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              '10',
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                            InkWell(
-                              onTap: () {},
-                              radius: 2.w,
-                              child: Container(
-                                padding: const EdgeInsets.all(3),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(2.w),
-                                  border: Border.all(
-                                    width: 0.5,
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    CupertinoIcons.delete,
+                                    color: Colors.grey,
                                   ),
-                                ),
-                                child: Icon(
-                                  CupertinoIcons.plus,
-                                  size: 5.w,
-                                ),
-                              ),
+                                )
+                              ],
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 15.w,
-                      right: 0,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          CupertinoIcons.delete,
-                          color: Colors.grey,
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
