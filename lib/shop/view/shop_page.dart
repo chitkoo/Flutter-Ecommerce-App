@@ -237,11 +237,23 @@ class ProductCard extends StatelessWidget {
             left: 2.w,
             child: SizedBox(
               width: 45.w,
-              child: Text(
-                '\$ 549',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      decoration: TextDecoration.lineThrough,
+              child: Text.rich(
+                TextSpan(
+                  text: '\$ 549 ',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        decoration: TextDecoration.lineThrough,
+                        color: favouriteColor,
+                      ),
+                  children: [
+                    TextSpan(
+                      text: '(20% OFF)',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: favouriteColor,
+                            decoration: TextDecoration.none,
+                          ),
                     ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -252,7 +264,9 @@ class ProductCard extends StatelessWidget {
               width: 45.w,
               child: Text(
                 '\$ 549',
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ),
           ),
