@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../search/view/search_page.dart';
 import '../../shop/shop.dart';
-import '../../shopping_bag/shopping_bag.dart';
+import '../../wishlist/view/wishlist_page.dart';
 import '../cubit/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,7 +33,7 @@ class HomeView extends StatelessWidget {
         index: selectedTab,
         children: const [
           ShopPage(),
-          ShoppingBagPage(),
+          WishlistPage(),
           SearchPage(),
         ],
       ),

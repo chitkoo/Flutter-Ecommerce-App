@@ -126,8 +126,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Positioned(
             top: Platform.isIOS ? 60 : 35,
-            left: 20,
-            right: 10,
+            left: 2.5.w,
+            right: 0,
             child: Row(
               children: [
                 Text(
@@ -154,8 +154,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           Positioned(
             bottom: 15,
-            right: 20,
-            left: 20,
+            right: 2.5.w,
+            left: 2.5.w,
             child: InkWell(
               onTap: () => Navigator.of(context).push(
                 buildPageRoute(const SearchPage()),

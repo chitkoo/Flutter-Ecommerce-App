@@ -19,7 +19,7 @@ ThemeData get getAppTheme {
         color: primaryTextColor,
       ),
     ),
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Colors.grey.shade100,
     iconTheme: const IconThemeData(color: primary),
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(iconSize: 25),
