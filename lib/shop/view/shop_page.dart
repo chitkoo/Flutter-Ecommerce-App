@@ -1,16 +1,19 @@
 import 'dart:io';
 
+import 'package:app_repository/models/product_entity/product.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shopping_app/utils/extensions.dart';
 
 import '../../common/common_methods.dart';
 import '../../search/search.dart';
 import '../../shopping_bag/shopping_bag.dart';
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
+import '../../utils/extensions.dart';
+import '../bloc/shop_bloc.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
@@ -37,7 +40,7 @@ class ShopPage extends StatelessWidget {
           ),
 
           ///`Smartphones List`
-          const _PopularList(),
+          const _PopularSmartPhonesList(),
 
           ///`Laptops Header`
           _HeaderSection(
@@ -46,7 +49,7 @@ class ShopPage extends StatelessWidget {
           ),
 
           ///`Laptops List`
-          const _PopularList(),
+          // const _PopularLaptopsList(),
           SliverToBoxAdapter(
             child: SizedBox(
               height: 5.w,
@@ -225,35 +228,74 @@ class _CategoriesList extends StatelessWidget {
   }
 }
 
-class _PopularList extends StatelessWidget {
-  const _PopularList();
+class _PopularSmartPhonesList extends StatelessWidget {
+  const _PopularSmartPhonesList();
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: SizedBox(
-        height: 55.w,
-        child: ListView.builder(
-          addAutomaticKeepAlives: false,
-          addRepaintBoundaries: false,
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (BuildContext context, int index) {
-            return const ProductCard();
-          },
-        ),
-      ),
+    return BlocBuilder<ShopBloc, ShopState>(
+      builder: (context, state) {
+        return SliverToBoxAdapter(
+          child: SizedBox(
+            height: 55.w,
+            child: ListView.builder(
+              addAutomaticKeepAlives: false,
+              addRepaintBoundaries: false,
+              scrollDirection: Axis.horizontal,
+              itemCount: state.smartPhonesList.length,
+              itemBuilder: (BuildContext context, int index) {
+                final product = state.smartPhonesList[index];
+
+                return ProductCard(
+                  product: product,
+                );
+              },
+            ),
+          ),
+        );
+      },
     );
   }
 }
 
+// class _PopularLaptopsList extends StatelessWidget {
+//   const _PopularLaptopsList();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SliverToBoxAdapter(
+//       child: SizedBox(
+//         height: 55.w,
+//         child: ListView.builder(
+//           addAutomaticKeepAlives: false,
+//           addRepaintBoundaries: false,
+//           scrollDirection: Axis.horizontal,
+//           itemCount: 5,
+//           itemBuilder: (BuildContext context, int index) {
+//             return const ProductCard();
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
+    required this.product,
   });
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
+    final productName = product.title;
+    final thumbnail = product.thumbnail;
+    final originalPrice = product.price;
+    final discountPercentage = product.discountPercentage;
+    final discountPrice = product.discountPrice?.toStringAsFixed(2);
+
     return Container(
       width: 45.w,
       height: 55.w,
@@ -269,7 +311,7 @@ class ProductCard extends StatelessWidget {
             top: 0,
             bottom: 20.w,
             child: CachedNetworkImage(
-              imageUrl: 'https://i.dummyjson.com/data/products/1/1.jpg',
+              imageUrl: thumbnail ?? '',
             ),
           ),
           Positioned(
@@ -278,7 +320,7 @@ class ProductCard extends StatelessWidget {
             child: SizedBox(
               width: 45.w,
               child: Text(
-                'iPhone 9',
+                '$productName',
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: primaryTextColor,
@@ -294,14 +336,14 @@ class ProductCard extends StatelessWidget {
               width: 45.w,
               child: Text.rich(
                 TextSpan(
-                  text: '\$ 549 ',
+                  text: '\$ $originalPrice ',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         decoration: TextDecoration.lineThrough,
                         color: favouriteColor,
                       ),
                   children: [
                     TextSpan(
-                      text: '(20% OFF)',
+                      text: '($discountPercentage % OFF)',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: favouriteColor,
                             decoration: TextDecoration.none,
@@ -318,7 +360,7 @@ class ProductCard extends StatelessWidget {
             child: SizedBox(
               width: 45.w,
               child: Text(
-                '\$ 549',
+                '\$ $discountPrice',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),

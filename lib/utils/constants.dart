@@ -20,3 +20,5 @@ const categories = [
   "motorcycle",
   "lighting"
 ];
+
+enum ApiStatus { initial, loading, succeed, failed }

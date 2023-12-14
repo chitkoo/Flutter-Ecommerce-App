@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-
-import '../../shop/view/shop_page.dart';
 
 class WishlistPage extends StatelessWidget {
   const WishlistPage({super.key});
@@ -33,21 +30,21 @@ class WishListView extends StatelessWidget {
             ],
             floating: true,
           ),
-          SliverPadding(
-            padding: EdgeInsets.symmetric(vertical: 3.w),
-            sliver: SliverGrid.builder(
-              addAutomaticKeepAlives: false,
-              addRepaintBoundaries: false,
-              itemCount: 10,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 5.w,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return const ProductCard();
-              },
-            ),
-          ),
+          // SliverPadding(
+          //   padding: EdgeInsets.symmetric(vertical: 3.w),
+          //   sliver: SliverGrid.builder(
+          //     addAutomaticKeepAlives: false,
+          //     addRepaintBoundaries: false,
+          //     itemCount: 10,
+          //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          //       crossAxisCount: 2,
+          //       mainAxisSpacing: 5.w,
+          //     ),
+          //     itemBuilder: (BuildContext context, int index) {
+          //       return const ProductCard();
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

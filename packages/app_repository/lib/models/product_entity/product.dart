@@ -14,8 +14,9 @@ class Product extends Equatable {
   final String? category;
   final String? thumbnail;
   final List<dynamic>? images;
+  final double? discountPrice;
 
-  const Product({
+  Product({
     this.id,
     this.title,
     this.description,
@@ -27,7 +28,7 @@ class Product extends Equatable {
     this.category,
     this.thumbnail,
     this.images,
-  });
+  }) : discountPrice = price! - (price * (discountPercentage! / 100));
 
   factory Product.fromMap(Map<String, dynamic> data) => Product(
         id: data['id'] as int?,
@@ -111,6 +112,7 @@ class Product extends Equatable {
       category,
       thumbnail,
       images,
+      discountPrice,
     ];
   }
 }
