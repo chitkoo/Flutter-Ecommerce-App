@@ -9,15 +9,15 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 2.5.w),
-      width: 45.w,
-      height: 52.w,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(2.w),
+    return InkWell(
+      borderRadius: BorderRadius.circular(2.w),
+      onTap: () {},
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 2.5.w),
+        width: 45.w,
+        height: 52.w,
+        child: Material(
+          color: Colors.transparent,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
