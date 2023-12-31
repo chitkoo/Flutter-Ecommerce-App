@@ -41,7 +41,6 @@ class ProductCard extends StatelessWidget {
                 ),
                 alignment: Alignment.topRight,
                 child: IconButton(
-                  color: Colors.white,
                   icon: const Icon(
                     CupertinoIcons.heart,
                     color: primary,

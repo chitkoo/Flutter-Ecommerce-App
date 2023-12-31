@@ -16,6 +16,7 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
   })  : _productsRepository = productsRepository,
         super(const ShopState()) {
     on<_FetchPhonesList>(_onFetchPhonesList);
+    on<_FetchLaptopsList>(_onFetchLaptopsList);
   }
 
   final ProductsRepository _productsRepository;
@@ -35,6 +36,30 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
           state.copyWith(
             apiStatus: ApiStatus.succeed,
             phonesList: response.products ?? [],
+          ),
+        );
+      }
+    } catch (e) {
+      superPrint(e);
+      emit(state.copyWith(apiStatus: ApiStatus.failed));
+    }
+  }
+
+  Future<void> _onFetchLaptopsList(
+    _FetchLaptopsList event,
+    Emitter<ShopState> emit,
+  ) async {
+    emit(state.copyWith(apiStatus: ApiStatus.loading));
+    try {
+      final response = await _productsRepository.getLaptopsList();
+
+      superPrint('BLOC _____ ${response.products}');
+
+      if (response.products != []) {
+        emit(
+          state.copyWith(
+            apiStatus: ApiStatus.succeed,
+            laptopsList: response.products ?? [],
           ),
         );
       }

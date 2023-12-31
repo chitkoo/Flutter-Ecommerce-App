@@ -14,12 +14,17 @@ _$ShopStateImpl _$$ShopStateImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      laptopsList: (json['laptopsList'] as List<dynamic>?)
+              ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$ShopStateImplToJson(_$ShopStateImpl instance) =>
     <String, dynamic>{
       'apiStatus': _$ApiStatusEnumMap[instance.apiStatus]!,
       'phonesList': instance.phonesList,
+      'laptopsList': instance.laptopsList,
     };
 
 const _$ApiStatusEnumMap = {

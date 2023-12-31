@@ -23,7 +23,8 @@ class App extends StatelessWidget {
       ],
       child: BlocProvider(
         create: (context) => ShopBloc(productsRepository: _productsRepository)
-          ..add(const ShopEvent.fetchPhonesList()),
+          ..add(const ShopEvent.fetchPhonesList())
+          ..add(const ShopEvent.fetchLaptopsList()),
         child: const AppView(),
       ),
     );

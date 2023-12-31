@@ -24,4 +24,14 @@ class ProductsRepository {
 
     return compute(PhonesListEntity.fromJson, responseBody);
   }
+
+  ///Get Smartphones List `/laptops`
+  Future<PhonesListEntity> getLaptopsList() async {
+    final response =
+        await _restClient.get(endPoint: '/products/category/laptops');
+
+    final responseBody = jsonDecode(response.body) as Map<String, dynamic>;
+
+    return compute(PhonesListEntity.fromJson, responseBody);
+  }
 }

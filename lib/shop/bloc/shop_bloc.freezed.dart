@@ -19,32 +19,38 @@ mixin _$ShopEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchPhonesList,
+    required TResult Function() fetchLaptopsList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchPhonesList,
+    TResult? Function()? fetchLaptopsList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchPhonesList,
+    TResult Function()? fetchLaptopsList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchPhonesList value) fetchPhonesList,
+    required TResult Function(_FetchLaptopsList value) fetchLaptopsList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchPhonesList value)? fetchPhonesList,
+    TResult? Function(_FetchLaptopsList value)? fetchLaptopsList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchPhonesList value)? fetchPhonesList,
+    TResult Function(_FetchLaptopsList value)? fetchLaptopsList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$FetchPhonesListImpl implements _FetchPhonesList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchPhonesList,
+    required TResult Function() fetchLaptopsList,
   }) {
     return fetchPhonesList();
   }
@@ -114,6 +121,7 @@ class _$FetchPhonesListImpl implements _FetchPhonesList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchPhonesList,
+    TResult? Function()? fetchLaptopsList,
   }) {
     return fetchPhonesList?.call();
   }
@@ -122,6 +130,7 @@ class _$FetchPhonesListImpl implements _FetchPhonesList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchPhonesList,
+    TResult Function()? fetchLaptopsList,
     required TResult orElse(),
   }) {
     if (fetchPhonesList != null) {
@@ -134,6 +143,7 @@ class _$FetchPhonesListImpl implements _FetchPhonesList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchPhonesList value) fetchPhonesList,
+    required TResult Function(_FetchLaptopsList value) fetchLaptopsList,
   }) {
     return fetchPhonesList(this);
   }
@@ -142,6 +152,7 @@ class _$FetchPhonesListImpl implements _FetchPhonesList {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchPhonesList value)? fetchPhonesList,
+    TResult? Function(_FetchLaptopsList value)? fetchLaptopsList,
   }) {
     return fetchPhonesList?.call(this);
   }
@@ -150,6 +161,7 @@ class _$FetchPhonesListImpl implements _FetchPhonesList {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchPhonesList value)? fetchPhonesList,
+    TResult Function(_FetchLaptopsList value)? fetchLaptopsList,
     required TResult orElse(),
   }) {
     if (fetchPhonesList != null) {
@@ -163,6 +175,108 @@ abstract class _FetchPhonesList implements ShopEvent {
   const factory _FetchPhonesList() = _$FetchPhonesListImpl;
 }
 
+/// @nodoc
+abstract class _$$FetchLaptopsListImplCopyWith<$Res> {
+  factory _$$FetchLaptopsListImplCopyWith(_$FetchLaptopsListImpl value,
+          $Res Function(_$FetchLaptopsListImpl) then) =
+      __$$FetchLaptopsListImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchLaptopsListImplCopyWithImpl<$Res>
+    extends _$ShopEventCopyWithImpl<$Res, _$FetchLaptopsListImpl>
+    implements _$$FetchLaptopsListImplCopyWith<$Res> {
+  __$$FetchLaptopsListImplCopyWithImpl(_$FetchLaptopsListImpl _value,
+      $Res Function(_$FetchLaptopsListImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchLaptopsListImpl implements _FetchLaptopsList {
+  const _$FetchLaptopsListImpl();
+
+  @override
+  String toString() {
+    return 'ShopEvent.fetchLaptopsList()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchLaptopsListImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchPhonesList,
+    required TResult Function() fetchLaptopsList,
+  }) {
+    return fetchLaptopsList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchPhonesList,
+    TResult? Function()? fetchLaptopsList,
+  }) {
+    return fetchLaptopsList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchPhonesList,
+    TResult Function()? fetchLaptopsList,
+    required TResult orElse(),
+  }) {
+    if (fetchLaptopsList != null) {
+      return fetchLaptopsList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchPhonesList value) fetchPhonesList,
+    required TResult Function(_FetchLaptopsList value) fetchLaptopsList,
+  }) {
+    return fetchLaptopsList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchPhonesList value)? fetchPhonesList,
+    TResult? Function(_FetchLaptopsList value)? fetchLaptopsList,
+  }) {
+    return fetchLaptopsList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchPhonesList value)? fetchPhonesList,
+    TResult Function(_FetchLaptopsList value)? fetchLaptopsList,
+    required TResult orElse(),
+  }) {
+    if (fetchLaptopsList != null) {
+      return fetchLaptopsList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchLaptopsList implements ShopEvent {
+  const factory _FetchLaptopsList() = _$FetchLaptopsListImpl;
+}
+
 ShopState _$ShopStateFromJson(Map<String, dynamic> json) {
   return _ShopState.fromJson(json);
 }
@@ -171,6 +285,7 @@ ShopState _$ShopStateFromJson(Map<String, dynamic> json) {
 mixin _$ShopState {
   ApiStatus get apiStatus => throw _privateConstructorUsedError;
   List<Product> get phonesList => throw _privateConstructorUsedError;
+  List<Product> get laptopsList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -183,7 +298,10 @@ abstract class $ShopStateCopyWith<$Res> {
   factory $ShopStateCopyWith(ShopState value, $Res Function(ShopState) then) =
       _$ShopStateCopyWithImpl<$Res, ShopState>;
   @useResult
-  $Res call({ApiStatus apiStatus, List<Product> phonesList});
+  $Res call(
+      {ApiStatus apiStatus,
+      List<Product> phonesList,
+      List<Product> laptopsList});
 }
 
 /// @nodoc
@@ -201,6 +319,7 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
   $Res call({
     Object? apiStatus = null,
     Object? phonesList = null,
+    Object? laptopsList = null,
   }) {
     return _then(_value.copyWith(
       apiStatus: null == apiStatus
@@ -210,6 +329,10 @@ class _$ShopStateCopyWithImpl<$Res, $Val extends ShopState>
       phonesList: null == phonesList
           ? _value.phonesList
           : phonesList // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+      laptopsList: null == laptopsList
+          ? _value.laptopsList
+          : laptopsList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
     ) as $Val);
   }
@@ -223,7 +346,10 @@ abstract class _$$ShopStateImplCopyWith<$Res>
       __$$ShopStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ApiStatus apiStatus, List<Product> phonesList});
+  $Res call(
+      {ApiStatus apiStatus,
+      List<Product> phonesList,
+      List<Product> laptopsList});
 }
 
 /// @nodoc
@@ -239,6 +365,7 @@ class __$$ShopStateImplCopyWithImpl<$Res>
   $Res call({
     Object? apiStatus = null,
     Object? phonesList = null,
+    Object? laptopsList = null,
   }) {
     return _then(_$ShopStateImpl(
       apiStatus: null == apiStatus
@@ -249,6 +376,10 @@ class __$$ShopStateImplCopyWithImpl<$Res>
           ? _value._phonesList
           : phonesList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      laptopsList: null == laptopsList
+          ? _value._laptopsList
+          : laptopsList // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
     ));
   }
 }
@@ -258,8 +389,10 @@ class __$$ShopStateImplCopyWithImpl<$Res>
 class _$ShopStateImpl implements _ShopState {
   const _$ShopStateImpl(
       {this.apiStatus = ApiStatus.pure,
-      final List<Product> phonesList = const []})
-      : _phonesList = phonesList;
+      final List<Product> phonesList = const [],
+      final List<Product> laptopsList = const []})
+      : _phonesList = phonesList,
+        _laptopsList = laptopsList;
 
   factory _$ShopStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ShopStateImplFromJson(json);
@@ -276,9 +409,18 @@ class _$ShopStateImpl implements _ShopState {
     return EqualUnmodifiableListView(_phonesList);
   }
 
+  final List<Product> _laptopsList;
+  @override
+  @JsonKey()
+  List<Product> get laptopsList {
+    if (_laptopsList is EqualUnmodifiableListView) return _laptopsList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_laptopsList);
+  }
+
   @override
   String toString() {
-    return 'ShopState(apiStatus: $apiStatus, phonesList: $phonesList)';
+    return 'ShopState(apiStatus: $apiStatus, phonesList: $phonesList, laptopsList: $laptopsList)';
   }
 
   @override
@@ -289,13 +431,18 @@ class _$ShopStateImpl implements _ShopState {
             (identical(other.apiStatus, apiStatus) ||
                 other.apiStatus == apiStatus) &&
             const DeepCollectionEquality()
-                .equals(other._phonesList, _phonesList));
+                .equals(other._phonesList, _phonesList) &&
+            const DeepCollectionEquality()
+                .equals(other._laptopsList, _laptopsList));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, apiStatus, const DeepCollectionEquality().hash(_phonesList));
+      runtimeType,
+      apiStatus,
+      const DeepCollectionEquality().hash(_phonesList),
+      const DeepCollectionEquality().hash(_laptopsList));
 
   @JsonKey(ignore: true)
   @override
@@ -314,7 +461,8 @@ class _$ShopStateImpl implements _ShopState {
 abstract class _ShopState implements ShopState {
   const factory _ShopState(
       {final ApiStatus apiStatus,
-      final List<Product> phonesList}) = _$ShopStateImpl;
+      final List<Product> phonesList,
+      final List<Product> laptopsList}) = _$ShopStateImpl;
 
   factory _ShopState.fromJson(Map<String, dynamic> json) =
       _$ShopStateImpl.fromJson;
@@ -323,6 +471,8 @@ abstract class _ShopState implements ShopState {
   ApiStatus get apiStatus;
   @override
   List<Product> get phonesList;
+  @override
+  List<Product> get laptopsList;
   @override
   @JsonKey(ignore: true)
   _$$ShopStateImplCopyWith<_$ShopStateImpl> get copyWith =>
