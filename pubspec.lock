@@ -283,6 +283,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  freezed:
+    dependency: "direct dev"
+    description:
+      name: freezed
+      sha256: "6c5031daae12c7072b3a87eff98983076434b4889ef2a44384d0cae3f82372ba"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.6"
+  freezed_annotation:
+    dependency: "direct main"
+    description:
+      name: freezed_annotation
+      sha256: c3fd9336eb55a38cc1bbd79ab17573113a8deccd0ecbbf926cca3c62803b5c2d
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   frontend_server_client:
     dependency: transitive
     description:
@@ -371,14 +387,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.7.1"
-  line_icons:
-    dependency: "direct main"
-    description:
-      name: line_icons
-      sha256: "249d781d922f5437ac763d9c8f5a02cf5b499a6dc3f85e4b92e074cff0a932ab"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.3"
   lints:
     dependency: transitive
     description:
