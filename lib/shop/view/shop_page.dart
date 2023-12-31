@@ -22,7 +22,8 @@ class ShopPage extends StatelessWidget {
         centerTitle: false,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             icon: const Icon(CupertinoIcons.shopping_cart),
           ),
         ],

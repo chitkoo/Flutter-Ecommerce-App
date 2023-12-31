@@ -20,6 +20,10 @@ dependencies:
   cached_network_image: ^3.3.0
   freezed_annotation: ^2.4.1
 
+  #Custom Packages
+  products_repository:
+    path: packages/products_repository
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

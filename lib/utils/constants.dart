@@ -21,4 +21,3 @@ const categories = [
   "lighting"
 ];
 
-enum ApiStatus { initial, loading, succeed, failed }

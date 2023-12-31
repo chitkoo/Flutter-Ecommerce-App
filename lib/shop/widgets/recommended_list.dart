@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../utils/enums.dart';
+import '../bloc/shop_bloc.dart';
 import 'widgets.dart';
 
 class RecommededList extends StatelessWidget {
@@ -8,17 +11,34 @@ class RecommededList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 53.w,
-      child: ListView.builder(
-        addAutomaticKeepAlives: false,
-        addRepaintBoundaries: false,
-        scrollDirection: Axis.horizontal,
-        itemCount: 5,
-        itemBuilder: (BuildContext context, int index) {
-          return const ProductCard();
-        },
-      ),
+    return BlocBuilder<ShopBloc, ShopState>(
+      builder: (context, state) {
+        switch (state.apiStatus) {
+          case ApiStatus.loading:
+            return const CupertinoActivityIndicator();
+          case ApiStatus.failed:
+            return const Text('Failed to load');
+          case ApiStatus.succeed:
+            return SizedBox(
+              height: 53.w,
+              child: ListView.builder(
+                addAutomaticKeepAlives: false,
+                addRepaintBoundaries: false,
+                scrollDirection: Axis.horizontal,
+                itemCount: state.phonesList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final product = state.phonesList[index];
+
+                  return ProductCard(
+                    product: product,
+                  );
+                },
+              ),
+            );
+          case ApiStatus.pure:
+            return const SizedBox.shrink();
+        }
+      },
     );
   }
 }
