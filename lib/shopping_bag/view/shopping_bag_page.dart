@@ -100,7 +100,7 @@ class ShoppingBagView extends StatelessWidget {
                                           child: Icon(
                                             CupertinoIcons.minus,
                                             size: 5.w,
-                                            color: primaryTextColor,
+                                            color: primaryDark,
                                           ),
                                         ),
                                       ),
@@ -127,7 +127,7 @@ class ShoppingBagView extends StatelessWidget {
                                           child: Icon(
                                             CupertinoIcons.plus,
                                             size: 5.w,
-                                            color: primaryTextColor,
+                                            color: primaryDark,
                                           ),
                                         ),
                                       ),

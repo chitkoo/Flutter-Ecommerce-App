@@ -12,15 +12,15 @@ ThemeData get getAppTheme {
     textTheme: GoogleFonts.dmSansTextTheme().copyWith(
       titleMedium: GoogleFonts.dmSans(
         fontSize: 17.sp,
-        color: primaryTextColor,
+        color: primaryDark,
       ),
       bodyMedium: GoogleFonts.dmSans(
         fontSize: 15.sp,
-        color: primaryTextColor,
+        color: secondaryDark,
       ),
     ),
-    scaffoldBackgroundColor: Colors.grey.shade100,
-    iconTheme: const IconThemeData(color: primary),
+    iconTheme: const IconThemeData(color: primaryDark),
+    scaffoldBackgroundColor: Colors.white,
     iconButtonTheme: IconButtonThemeData(
       style: IconButton.styleFrom(iconSize: 25),
     ),
@@ -44,7 +44,7 @@ ThemeData get getAppTheme {
 AppBarTheme _getAppBarTheme() {
   return AppBarTheme(
     centerTitle: true,
-    backgroundColor: Colors.grey.shade100,
+    backgroundColor: Colors.white,
     surfaceTintColor: Colors.transparent,
     titleTextStyle: TextStyle(
       fontSize: 17.sp,
@@ -58,6 +58,8 @@ NavigationBarThemeData _getNavBarTheme() {
   return NavigationBarThemeData(
     backgroundColor: Colors.white,
     indicatorColor: primary,
+    elevation: 5,
+    shadowColor: Colors.black,
     surfaceTintColor: Colors.transparent,
     labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
     iconTheme: MaterialStateProperty.resolveWith(
@@ -68,9 +70,14 @@ NavigationBarThemeData _getNavBarTheme() {
           );
         }
         return const IconThemeData(
-          color: Colors.black,
+          color: primaryDark,
         );
       },
+    ),
+    labelTextStyle: const MaterialStatePropertyAll<TextStyle>(
+      TextStyle(
+        color: primaryDark,
+      ),
     ),
   );
 }

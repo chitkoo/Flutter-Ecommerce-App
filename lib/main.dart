@@ -1,4 +1,3 @@
-import 'package:app_repository/app_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +9,5 @@ void main() {
 
   Bloc.observer = ShoppingAppBlocObserver();
 
-  final appRepository = AppRepository();
-
-  runApp(App(
-    appRepository: appRepository,
-  ));
+  runApp(const App());
 }
