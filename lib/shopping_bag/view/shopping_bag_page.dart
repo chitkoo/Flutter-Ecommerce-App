@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../utils/colors.dart';
@@ -177,14 +178,19 @@ class ShoppingBagView extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 10.w),
-                  padding: EdgeInsets.symmetric(horizontal: 10.w)),
-              child: const Row(
+              // style: ElevatedButton.styleFrom(
+              //     minimumSize: Size(double.infinity, 10.w),
+              //     padding: EdgeInsets.symmetric(horizontal: 10.w)),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Proceed to checkout'),
-                  Icon(CupertinoIcons.chevron_right_2),
+                  const Text('Proceed to checkout'),
+                  Lottie.asset(
+                    'assets/animations/right_arrow.json',
+                    width: 12.w,
+                    height: 12.w,
+                  ),
+                  // Icon(CupertinoIcons.chevron_right_2),
                 ],
               ),
             ),

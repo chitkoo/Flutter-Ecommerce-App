@@ -16,7 +16,7 @@ class WishlistPage extends StatelessWidget {
           SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.5.w),
             sliver: SliverList.separated(
-              itemCount: 10,
+              itemCount: 5,
               itemBuilder: (BuildContext context, int index) {
                 return const WishlistItem();
               },

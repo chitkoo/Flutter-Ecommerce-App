@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shopping_app/common/common_methods.dart';
+import 'package:shopping_app/shopping_bag/shopping_bag.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
@@ -22,8 +24,9 @@ class ShopPage extends StatelessWidget {
         centerTitle: false,
         actions: [
           IconButton(
-            onPressed: () {
-            },
+            onPressed: () => Navigator.of(context).push(
+              buildPageRoute(const ShoppingBagPage()),
+            ),
             icon: const Icon(CupertinoIcons.shopping_cart),
           ),
         ],
