@@ -17,13 +17,18 @@ class WishlistPage extends StatelessWidget {
           const WishlistAppbar(),
           BlocBuilder<WishlistBloc, WishlistState>(
             builder: (context, state) {
+              if (state.wishlist.isEmpty) {
+                return const EmptyWishlistWidget();
+              }
               return SliverPadding(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.5.w),
                 sliver: SliverList.separated(
                   itemCount: state.wishlist.length,
                   itemBuilder: (BuildContext context, int index) {
                     final wishlistProduct = state.wishlist[index];
-                    return  WishlistItem(product: wishlistProduct,);
+                    return WishlistItem(
+                      product: wishlistProduct,
+                    );
                   },
                   separatorBuilder: (context, index) {
                     return Container(
