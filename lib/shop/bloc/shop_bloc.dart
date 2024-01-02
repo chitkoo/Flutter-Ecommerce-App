@@ -29,8 +29,6 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
     try {
       final response = await _productsRepository.getSmartPhonesList();
 
-      superPrint('BLOC _____ ${response.products}');
-
       if (response.products != []) {
         emit(
           state.copyWith(
@@ -52,8 +50,6 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
     emit(state.copyWith(apiStatus: ApiStatus.loading));
     try {
       final response = await _productsRepository.getLaptopsList();
-
-      superPrint('BLOC _____ ${response.products}');
 
       if (response.products != []) {
         emit(

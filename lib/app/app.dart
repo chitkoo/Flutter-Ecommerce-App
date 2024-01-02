@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:products_repository/products_repository.dart';
+import 'package:shopping_app/wishlist/bloc/wishlist_bloc.dart';
 
 import '../shop/bloc/shop_bloc.dart';
 import 'view/app_view.dart';
@@ -21,10 +22,18 @@ class App extends StatelessWidget {
           value: _productsRepository,
         ),
       ],
-      child: BlocProvider(
-        create: (context) => ShopBloc(productsRepository: _productsRepository)
-          ..add(const ShopEvent.fetchPhonesList())
-          ..add(const ShopEvent.fetchLaptopsList()),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) =>
+                ShopBloc(productsRepository: _productsRepository)
+                  ..add(const ShopEvent.fetchPhonesList())
+                  ..add(const ShopEvent.fetchLaptopsList()),
+          ),
+          BlocProvider(
+            create: (context) => WishlistBloc(),
+          ),
+        ],
         child: const AppView(),
       ),
     );

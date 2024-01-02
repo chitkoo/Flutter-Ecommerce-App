@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:products_repository/products_repository.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../utils/colors.dart';
+import '../../wishlist/bloc/wishlist_bloc.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.product});
@@ -40,12 +42,22 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 alignment: Alignment.topRight,
-                child: IconButton(
-                  icon: const Icon(
-                    CupertinoIcons.heart,
-                    color: primary,
-                  ),
-                  onPressed: () {},
+                child: BlocBuilder<WishlistBloc, WishlistState>(
+                  builder: (context, state) {
+                    bool isInWishlist = state.wishlist.contains(product);
+
+                    return IconButton(
+                      icon:  Icon(
+                        isInWishlist ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
+                        color: primary,
+                      ),
+                      onPressed: () {
+                        context.read<WishlistBloc>().add(
+                              WishlistEvent.toggleWishlist(product: product),
+                            );
+                      },
+                    );
+                  },
                 ),
               ),
               const SizedBox(

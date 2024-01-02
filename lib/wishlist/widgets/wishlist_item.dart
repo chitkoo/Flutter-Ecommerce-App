@@ -1,14 +1,24 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:products_repository/products_repository.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../utils/colors.dart';
+import '../bloc/wishlist_bloc.dart';
 
 class WishlistItem extends StatelessWidget {
-  const WishlistItem({super.key});
+  const WishlistItem({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
+    final image = product.images?[0];
+    final name = product.title;
+    final price = product.price;
+
     return SizedBox(
       width: 90.w,
       height: 30.w,
@@ -21,9 +31,9 @@ class WishlistItem extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(2.w),
             ),
-            child: Image.asset(
-              'assets/images/smaple.jpeg',
-              fit: BoxFit.fill,
+            child: CachedNetworkImage(
+              imageUrl: image ?? '',
+              fit: BoxFit.cover,
             ),
           ),
           Container(
@@ -38,21 +48,36 @@ class WishlistItem extends StatelessWidget {
                     SizedBox(
                       width: 30.w,
                       child: Text(
-                        'Microsoft Surface Laptop 4',
+                        '$name',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                     const Spacer(),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(CupertinoIcons.heart),
+                    BlocBuilder<WishlistBloc, WishlistState>(
+                      builder: (context, state) {
+                        bool isInWishlist = state.wishlist.contains(product);
+                        return IconButton(
+                          onPressed: () {
+                            context.read<WishlistBloc>().add(
+                                  WishlistEvent.toggleWishlist(
+                                      product: product),
+                                );
+                          },
+                          icon: Icon(
+                            isInWishlist
+                                ? CupertinoIcons.heart_fill
+                                : CupertinoIcons.heart,
+                            color: primary,
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
                 Text(
-                  '\$ 9000',
+                  '\$ $price',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: primaryDark,
                         fontWeight: FontWeight.bold,
