@@ -178,9 +178,6 @@ class ShoppingBagView extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {},
-              // style: ElevatedButton.styleFrom(
-              //     minimumSize: Size(double.infinity, 10.w),
-              //     padding: EdgeInsets.symmetric(horizontal: 10.w)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -190,7 +187,6 @@ class ShoppingBagView extends StatelessWidget {
                     width: 12.w,
                     height: 12.w,
                   ),
-                  // Icon(CupertinoIcons.chevron_right_2),
                 ],
               ),
             ),
